@@ -1,0 +1,35 @@
+@import "tailwindcss";
+* {
+    margin: 0;
+    font-family:monospace;
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('/LibertinusSans-Italic.ttf') format('ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+.font{
+    font-family: 'MyCustomFont', monospace;
+      font-size: 3rem; 
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, #1f1c2c, #928dab, #2c5364);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .font {
+    font-size: 3.75rem;
+  }
+}
+
+
+body {
+    height: 100%;
+    width: 100%;
+}
