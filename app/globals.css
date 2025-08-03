@@ -3,6 +3,11 @@
     margin: 0;
     font-family:monospace;
 }
+::selection{
+    background-color: #1f1c2c;
+    color: #ffffff;
+}
+
 
 @font-face {
     font-family: 'MyCustomFont';
@@ -10,13 +15,22 @@
     font-weight: 700;
     font-style: italic;
 }
+.bg-img {
+    background-image: url('/imag.webp');
+    background-size: cover;
+    background-position: center;
+    
+}
+.hero-content{
+  margin-top: 70px;
+}
 
 .font{
     font-family: 'MyCustomFont', monospace;
       font-size: 3rem; 
   font-weight: 700;
   font-style: italic;
-  background: linear-gradient(135deg, #1f1c2c, #928dab, #2c5364);
+  background: linear-gradient(135deg, #325565, #32bbbb, #12d5d577);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

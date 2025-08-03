@@ -11,8 +11,8 @@ export default async function Home() {
  await wait(2000)
 
   return (
-    <>
+    < div className='bg-img'>
       <Hero />
-    </>
+    </div>
   );
 }
