@@ -35,6 +35,9 @@
   background-clip: text;
   color: transparent;
 }
+#about{
+  background-image: linear-gradient(to right, #080F1F,#0E2235,#0E2537 ,#083241);
+}
 
 @media (min-width: 768px) {
   .font {

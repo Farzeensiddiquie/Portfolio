@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Nav Bar */}
-      <div className="flex mt-5  md:top-5 justify-between items-center w-full md:w-[45vw] md:rounded-xl md:relative md:left-[30%] h-[7vh] md:backdrop-blur-3xl fixed md:border-b md:border-l md:border-white/10 px-7  md:px-5 z-[90]">
+      <div className="flex mt-5 fixed md:top-5 justify-between items-center w-full md:w-[45vw] md:rounded-xl md:left-[30%] h-[7vh] md:backdrop-blur-3xl  md:border-b md:border-l md:border-white/10 px-7  md:px-5 z-[90]">
         {/* Logo Left */}
         <div className="logo flex items-center shrink-0">
           <img
@@ -33,7 +33,7 @@ export default function Navbar() {
           <NavLink className="transform transition duration-300 hover:scale-130" href="/">
             Home
           </NavLink>
-          <NavLink className="transform transition duration-300 hover:scale-130" href="/About">
+          <NavLink className="transform transition duration-300 hover:scale-130" href="#about">
             About
           </NavLink>
           <NavLink className="transform transition duration-300 hover:scale-130" href="/project">
@@ -63,7 +63,7 @@ export default function Navbar() {
           <NavLink onClick={() => setMenuOpen(false)} className="text-lg" href="/">
             Home
           </NavLink>
-          <NavLink onClick={() => setMenuOpen(false)} className="text-lg" href="/About">
+          <NavLink onClick={() => setMenuOpen(false)} className="text-lg" href="#about">
             About
           </NavLink>
           <NavLink onClick={() => setMenuOpen(false)} className="text-lg" href="/project">
