@@ -1,7 +1,6 @@
 'use client';
 
-import Navbar from '@/components/navbar/Navbar';
-import { Link } from 'lucide-react';
+
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
@@ -9,7 +8,7 @@ function Contact() {
   const pathname = usePathname();
   return (
     <>
-      <Navbar />
+      
       <div className='flex justify-center items-center text-white min-h-screen bg-gradient-to-r from-[#08101F] to-[#093341]'>
         <div className='text-center'>
           <h1 className='text-4xl font-bold mb-4'>Contact Page</h1>

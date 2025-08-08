@@ -19,11 +19,19 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="flex fixed top-5 left-1/2 -translate-x-1/2 w-[90vw] md:min-w-[460px] md:w-[45vw] h-[7vh] items-center justify-between px-5 md:px-6 bg-black/10 backdrop-blur-lg border border-white/10 rounded-xl z-[50]">
-        <Logo />
-        <DesktopNav />
-        <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      </div>
+      <nav className="fixed md:top-5 md:left-1/2 md:-translate-x-1/2 z-[50] w-full md:w-auto">
+        <div
+          className="
+            flex justify-between items-center h-[50px] px-5 
+            md:px-6 md:min-w-[50vh] md:gap-[5vw]
+            bg-black/10 backdrop-blur-lg md:border md:border-white/10 md:rounded-3xl
+          "
+        >
+          <Logo />
+          <DesktopNav />
+          <Hamburger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        </div>
+      </nav>
 
       <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 

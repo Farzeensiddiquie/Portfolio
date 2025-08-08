@@ -38,7 +38,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold">Hey There!</h1>
+            <h1 className="text-4xl md:text-5xl font-bold shrink-0">Hey There!</h1>
           </motion.div>
         )}
 
@@ -51,7 +51,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold">I am Farzeen Wasif</h1>
+            <h1 className="text-2xl md:text-5xl sm:shrink-0">I am Farzeen Wasif</h1>
           </motion.div>
         )}
       </AnimatePresence>

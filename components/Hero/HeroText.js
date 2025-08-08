@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import Link from 'next/link';
 
+
 export default function HeroText({ handleTypeDone, showButtons }) {
   return (
     <div className="md:min-w-[400px] text-center md:text-left flex flex-col gap-6">
@@ -52,10 +53,13 @@ export default function HeroText({ handleTypeDone, showButtons }) {
             className="mt-4 flex flex-wrap justify-center md:justify-start text-lg gap-4"
           >
             <Link
-              href="/projects"
-              className="px-6 py-3 w-[150px] sm:w-[160px] bg-[linear-gradient(135deg,_#6DB5D6,_#2D7373,_#012D2D)] text-white font-semibold rounded-lg shadow-md hover:brightness-110 hover:scale-105 transition-transform duration-300"
+            
+              href="Farzeen_Wasif_Developer_CV.pdf" // your external CV link
+      target="_blank"
+      rel="noopener noreferrer"
+              className="px-6 py-3 text-center w-[150px] sm:w-[160px] bg-[linear-gradient(135deg,_#6DB5D6,_#2D7373,_#012D2D)] text-white font-semibold rounded-lg shadow-md hover:brightness-110 hover:scale-105 transition-transform duration-300"
             >
-              Download CV
+              View CV
             </Link>
             <Link
               href="/contact"

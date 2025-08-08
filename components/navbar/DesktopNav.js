@@ -6,7 +6,7 @@ export default function DesktopNav() {
       <NavLink href="/">Home</NavLink>
       <NavLink href="#about">About</NavLink>
       <NavLink href="/project">Projects</NavLink>
-      <NavLink href="/contact">Contact</NavLink>
+      <NavLink href="#contact">Contact</NavLink>
     </nav>
   );
 }
