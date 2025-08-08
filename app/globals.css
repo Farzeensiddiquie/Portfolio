@@ -4,9 +4,32 @@
     font-family:monospace;
 }
 ::selection{
-    background-color: #1f1c2c;
+    background: #80d3fc;
     color: #ffffff;
 }
+/* For WebKit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 6px; 
+  background: #000;
+}
+
+::-webkit-scrollbar-track {
+  background:black; /* Darker blue */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1875A3, #325565, #049191);
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #80d3fc, #1b4253, #33eeee);
+}
+
+
+
 
 
 @font-face {
