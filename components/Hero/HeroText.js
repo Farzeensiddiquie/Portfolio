@@ -62,7 +62,7 @@ export default function HeroText({ handleTypeDone, showButtons }) {
               View CV
             </Link>
             <Link
-              href="/contact"
+              href="#contact"
               className="px-6 py-3 w-[150px] sm:w-[160px] border-2 border-gray-500 text-gray-300 font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-[#6DB5D6] hover:to-[#012D2D] hover:text-white hover:border-transparent"
             >
               Contact Me

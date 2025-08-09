@@ -9,7 +9,7 @@ function Contact() {
   return (
     <>
       
-      <div className='flex justify-center items-center text-white min-h-screen bg-gradient-to-r from-[#08101F] to-[#093341]'>
+      <div id='contact' className='flex justify-center items-center text-white min-h-screen bg-gradient-to-r from-[#08101F] to-[#093341]'>
         <div className='text-center'>
           <h1 className='text-4xl font-bold mb-4'>Contact Page</h1>
           <p className='text-lg'>You are currently on: {pathname}</p>
