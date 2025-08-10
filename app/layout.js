@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+ import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,7 +25,10 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         
-        {children}
+        <ProgressBarProvider>
+              <ProgressBar className="fixed z-50 h-10 shadow-lg shadow-sky-500/20 bg-red-500 top-0" />
+              {children}
+            </ProgressBarProvider>
       </body>
     </html>
   );
