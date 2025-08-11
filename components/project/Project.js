@@ -5,7 +5,7 @@ function Project() {
   return (
     <>
    
-    <div id='projects' className='bg-gray-700 min-h-screen flex items-center justify-center'>
+    <div id='project' className='bg-gray-700 min-h-screen flex items-center justify-center'>
 
         <h1 className="text-3xl font-bold underline">
             Projects Page

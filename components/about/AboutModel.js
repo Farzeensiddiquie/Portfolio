@@ -8,44 +8,37 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 function SkullModel() {
   const ref = useRef();
   const { scene, animations } = useGLTF('/skull_face.glb');
   const { actions } = useAnimations(animations, ref);
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || !actions) return;
 
-    
-    gsap.to(ref.current.rotation, {
-      y: Math.PI * 2.3,
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
-console.log('ref',ref);
+    const actionNames = Object.keys(actions);
+    if (actionNames.length === 0) return;
 
-    // Play animation when in view
+    const action = actions[actionNames[0]];
+    action.paused = true;
+    action.play();
+
+    let targetTime = 0;
+
     ScrollTrigger.create({
       trigger: "#about",
-      start: "top 80%",
-      onEnter: () => {
-        if (actions && Object.keys(actions).length > 0) {
-          Object.values(actions).forEach(action => {
-            action.reset().play();
-            action.loop = true;
-          });
-        }
-      },
-      onLeave: () => {
-        if (actions && Object.keys(actions).length > 0) {
-          Object.values(actions).forEach(action => action.stop());
-        }
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => {
+        const duration = action.getClip().duration;
+        targetTime = self.progress * duration;
       }
+    });
+
+    // Smoothly interpolate action.time towards targetTime
+    gsap.ticker.add(() => {
+      action.time += (targetTime - action.time) * 0.1; // 0.1 is smoothing factor
     });
 
   }, [actions]);
@@ -56,7 +49,7 @@ console.log('ref',ref);
       object={scene}
       scale={0.04}
       position={[0, -13, -10]}
-      rotation={[0, Math.PI, 0]}
+      rotation={[0, Math.PI * 2, 0]}
     />
   );
 }
@@ -72,7 +65,7 @@ export default function AboutModel() {
         <Suspense fallback={null}>
           <SkullModel />
         </Suspense>
-        <OrbitControls enableZoom={false} enablePan={false} />
+        <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
       </Canvas>
     </div>
   );

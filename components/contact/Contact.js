@@ -1,15 +1,29 @@
-'use client';
-
-
-import { usePathname } from 'next/navigation';
-import React from 'react';
+"use client";
+import React from "react";
 
 function Contact() {
-  const pathname = usePathname();
   return (
-    <>
-      
-    </>
+    <div
+      id="contact"
+      className="
+      bg-gray-900
+      flex
+      justify-center
+      items-center
+      relative
+      w-full
+      h-screen
+      text-white
+      overflow-hidden
+      ">
+      <h1 className="
+      text-3xl
+      font-bold
+      underline
+      ">
+      Contact Page
+      </h1>
+    </div>
   );
 }
 
