@@ -10,6 +10,9 @@ export default function About() {
     >
      <AboutModel />
       <AboutForeground />
+      <div className="absolute bottom-0 left-0 z-10">
+        <img src="/bg.png" alt="" />
+      </div>
     </section>
   );
 }
