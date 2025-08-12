@@ -3,6 +3,7 @@
   margin: 0;
   font-family: monospace;
 }
+
 ::selection {
   background: #80d3fc;
   color: #ffffff;
@@ -34,11 +35,7 @@
   font-weight: 700;
   font-style: italic;
 }
-.bg-img {
-  background-image: url("/imag.webp");
-  background-size: cover;
-  background-position: center;
-}
+
 .hero-content {
   margin-top: 70px;
 }
@@ -63,4 +60,11 @@
 body {
   height: 100%;
   width: 100%;
+}
+.bg-img {
+  background-color: #000;
+}
+html {
+  font-size: 110%;
+  scroll-behavior: smooth;
 }

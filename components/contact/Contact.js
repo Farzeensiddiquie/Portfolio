@@ -6,7 +6,7 @@ function Contact() {
     <div
       id="contact"
       className="
-      bg-gray-900
+      bg-black
       flex
       justify-center
       items-center

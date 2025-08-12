@@ -1,4 +1,5 @@
-import NavLink from '../NavLink';
+import Link from "next/link";
+
 
 export default function MobileMenu({ menuOpen, setMenuOpen }) {
   return (
@@ -8,10 +9,10 @@ export default function MobileMenu({ menuOpen, setMenuOpen }) {
       }`}
     >
       <div className="flex flex-col items-center justify-center h-full gap-8 pt-20 text-white">
-        <NavLink onClick={() => setMenuOpen(false)} href="/">Home</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} href="#about">About</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} href="/project">Projects</NavLink>
-        <NavLink onClick={() => setMenuOpen(false)} href="#contact">Contact</NavLink>
+        <Link onClick={() => setMenuOpen(false)} href="#">Home</Link>
+        <Link onClick={() => setMenuOpen(false)} href="#about">About</Link>
+        <Link onClick={() => setMenuOpen(false)} href="#project">Projects</Link>
+        <Link onClick={() => setMenuOpen(false)} href="#contact">Contact</Link>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export default function HeroImage() {
 
   return (
     <div className="overflow-hidden mb-[20px]">
-      <div className="flex min-h-[18.75rem] items-center justify-center lg:min-h-[35rem]">
+      <div className="flex md:px-15 min-h-[18.75rem] items-center justify-center md:justify-end lg:min-h-[35rem]">
         <div className="relative size-56 sm:size-60 md:size-[20rem] lg:size-[25.75rem]">
           <img
             src="https://ik.imagekit.io/cpnw7c0xpe/Tailwind%20Components/Components/hero-placeholder.png?updatedAt=1739628240660"

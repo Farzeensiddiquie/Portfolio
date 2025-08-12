@@ -14,9 +14,9 @@ export default function HeroText({ handleTypeDone, showButtons }) {
         className="text-3xl sm:text-4xl md:text-5xl font-bold"
       >
         <span className='text-sm pl-2 text-gray-400'>Hi, I am</span> <br />
-        <span>Farzeen Wasif</span>
+        <span>Farzeen <span className='text-[#14827ec1]'>Wasif</span> </span>
         <br />
-        <span className='md:text-[#465d82] text-gray-500 text-[1.2rem] sm:text-[1.4rem]'>I am here to </span>
+        <span className='bg-gradient-to-r from-gray-400 to-gray-700 bg-clip-text text-transparent  text-[1.2rem] sm:text-[1.4rem]'>I am here to </span>
       </motion.h1>
 
       <motion.div

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import HeroText from './HeroText';
 import HeroImage from './HeroImage';
-import DownArrow from './DownArrow';
+
 
 export default function Hero() {
   const [step, setStep] = useState(0);
@@ -23,8 +23,10 @@ export default function Hero() {
   };
 
   return (
-    <section id='hero' className="bg-[radial-gradient(ellipse_at_top_center,_rgba(46,46,46,0.85)_0%,_rgba(28,28,28,0.75)_30%,_rgba(13,13,13,0.65)_100%)] min-h-screen w-full text-white relative overflow-hidden before:content-[''] before:absolute before:top-40 before:left-150 before:w-[500px] before:h-[500px] before:bg-[radial-gradient(circle,_#2e2e2e_0%,_transparent_100%)] before:opacity-40 before:blur-3xl before:pointer-events-none">
-      
+    <section id='hero' className="bg-img min-h-screen w-full text-white relative overflow-hidden ">
+         <div className="absolute top-0 left-0 z-10">
+        <img src="/bg.png" alt="" />
+      </div>
      
 
       {/* === STEP CONTENTS === */}
@@ -75,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full md:w-1/2"
+            className="w-full px-10 md:w-1/2"
             >
             
             <HeroText handleTypeDone={handleTypeDone} showButtons={showButtons} />
@@ -92,9 +94,10 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       )}
-
-      {/* === DOWN ARROW === */}
-      <DownArrow step={step} />
+   <div className="absolute bottom-0 right-0 z-10">
+        <img src="/bg.png" alt="" />
+      </div>
+    
     </section>
   );
 }
