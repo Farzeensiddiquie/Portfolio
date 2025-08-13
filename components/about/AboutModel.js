@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function SkullModel() {
   const ref = useRef();
-  const { scene, animations } = useGLTF('/skull_face.glb');
+  const { scene, animations } = useGLTF('/models/skull_face.glb');
   const { actions } = useAnimations(animations, ref);
 
   useEffect(() => {

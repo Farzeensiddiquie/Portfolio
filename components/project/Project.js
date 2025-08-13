@@ -2,7 +2,7 @@ import React from "react";
 
 function Project() {
   return (
-    <section className="bg-black relative min-h-screen flex items-center justify-center">
+    <section className="bg-black relative h-screen flex items-center justify-center">
       <div
         id="project"
       >
