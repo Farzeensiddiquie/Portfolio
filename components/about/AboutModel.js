@@ -65,7 +65,7 @@ export default function AboutModel() {
         <Suspense fallback={null}>
           <SkullModel />
         </Suspense>
-        <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
+        <OrbitControls enableZoom={false}  enableRotate={false} />
       </Canvas>
     </div>
   );

@@ -119,9 +119,9 @@ const Contact = () => {
                     w-[120%] h-[120%] group-hover:w-10 group-hover:h-10 group-hover:right-10
                     rounded-full bg-[linear-gradient(135deg,_#6DB5D6,_#2D7373,_#012D2D)] transition-all duration-500" />
                   <p className="z-10">{loading ? "Sending..." : "Send Message"}</p>
-                  <div className="group-hover:bg-[linear-gradient(135deg,_#6DB5D6,_#2D7373,_#012D2D)] size-10 rounded-full absolute right-10 top-1/2 
+                  <div className="group-hover:bg-[#2D7373] size-10 rounded-full text-lg absolute right-10 top-1/2 
                     -translate-y-1/2 flex justify-center items-center overflow-hidden">
-                    <img src="/arrow-down.svg" alt="arrow" />
+                   ↓
                   </div>
                 </button>
               </form>

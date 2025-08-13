@@ -1,12 +1,15 @@
-import React from 'react'
-import AboutModel from './AboutModel'
+// components/AboutModelWrapper.js
+"use client";
 
-function AboutModelWrapper() {
+import React from "react";
+import AboutModel from "./AboutModel";
+
+const AboutModelWrapper = () => {
   return (
-    <div className='md:absolute md:right-0 md:w-[40vw] h-full'>
+    <div className="w-full h-full relative">
       <AboutModel />
     </div>
-  ) 
-}
+  );
+};
 
-export default AboutModelWrapper
+export default AboutModelWrapper;

@@ -7,7 +7,8 @@ const Footer = () => {
   ];
 
   return (
-        <footer className="mt-10 md:mt-20 z-10 h-[10vh] text-white/50 px-5 md:px-20 flex items-center justify-center">
+      <footer className="mt-10 md:mt-20 z-10 min-h-[10vh] text-white/50 px-5 md:px-20 flex items-center justify-center">
+
     <div className="grid grid-cols-1 z-10 md:grid-cols-3 gap-5 md:gap-y-0 w-full">
         
         {/* Left column */}

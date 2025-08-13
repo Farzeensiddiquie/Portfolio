@@ -37,9 +37,7 @@
   font-style: italic;
 }
 
-.hero-content {
-  margin-top: 70px;
-}
+
 
 .font {
   font-family: "MyCustomFont", monospace;
@@ -84,4 +82,11 @@ html {
   background-color: rgba(82, 82, 82, 0.22); 
   backdrop-filter: blur(3px);
   pointer-events: none;
+}
+.margin-p{
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+.hero-margin{
+  margin-top: 85px;
 }
