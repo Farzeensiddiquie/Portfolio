@@ -8,13 +8,13 @@ import Footer from "@/components/footer/Footer";
 
 export default async function Home() {
   return (
-    <>
+    <div className="bg">
       <Navbar />
       <Hero />
       <About />
       <Project />
       <Contact />
-      <Footer/>
-    </>
+      <Footer />
+    </div>
   );
 }

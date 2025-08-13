@@ -6,7 +6,7 @@
 }
 
 ::selection {
-  background: #80d3fc;
+  background: #0d5173;
   color: #ffffff;
 }
 /* For WebKit browsers (Chrome, Safari, etc.) */
@@ -61,12 +61,27 @@
 body {
   height: 100%;
   width: 100%;
+ ;
 }
-.bg-img {
-  background-color: #000;
-}
+
 html {
   font-size: 110%;
   scroll-behavior: smooth;
 }
+.bg{
+   background-image: url("/bg.jpg");
+  background-position:left;
+  background-repeat: no-repeat;
+ background-size: cover;
+  background-attachment:fixed;
 
+}
+.bg::before {
+  content: "";
+  position: fixed;
+  inset: 0; 
+  
+  background-color: rgba(82, 82, 82, 0.22); 
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+}

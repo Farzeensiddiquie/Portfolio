@@ -31,16 +31,18 @@ const Contact = () => {
       );
 
       setForm({ name: "", email: "", message: "" });
+      alert("Message sent successfully! ✅");
     } catch (error) {
       console.error("EmailJS Error:", error);
+      alert("Oops! Something went wrong. ❌");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="bg-black py-5 flex justify-center px-5 md:px-10 md:mt-40 mt-20 md:mb-52">
-      <div className="w-full h-full md:px-10 px-5">
+    <section id="contact" className="relative px-5 md:px-10 md:mt-40 mt-20 md:mb-52">
+      <div className="w-full h-full flex flex-col gap-14 py-32 md:px-10 px-5">
         <TitleHeader
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
@@ -57,7 +59,7 @@ const Contact = () => {
               >
                 <div>
                   <label htmlFor="name" className="block text-white mb-2 font-medium">
-                    Your name
+                    Your Name
                   </label>
                   <input
                     type="text"
@@ -67,8 +69,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="What’s your name?"
                     required
-                    className="w-full px-4 py-2 rounded-lg bg-white/5 backdrop-blur-md text-white border border-gray-700bg-[#282828] border-[#414141]
- focus:outline-none focus:ring-2 focus:ring-teal-400"
+                    autoComplete="name"
+                    className="w-full px-4 py-2 rounded-lg bg-white/5 backdrop-blur-lg text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
                   />
                 </div>
 
@@ -84,8 +86,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Your email address?"
                     required
-                    className="w-full px-4 py-2 rounded-lg bg-white/5 backdrop-blur-md text-white border border-gray-700bg-[#282828] border-[#414141]
- focus:outline-none focus:ring-2 focus:ring-teal-400"
+                    autoComplete="email"
+                    className="w-full px-4 py-2 rounded-lg bg-white/5 backdrop-blur-lg text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
                   />
                 </div>
 
@@ -101,13 +103,17 @@ const Contact = () => {
                     placeholder="How can I help you?"
                     rows="5"
                     required
-                    className="w-full px-4 py-2 rounded-lg bg-white/5 backdrop-blur-md text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                    autoComplete="off"
+                    className="w-full px-4 py-2 rounded-lg bg-white/5 backdrop-blur-lg text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="px-4 py-4 text-white rounded-lg bg-white/5 backdrop-blur-md flex justify-center items-center relative cursor-pointer overflow-hidden group"
+                  disabled={loading}
+                  className={`px-4 py-4 text-white rounded-lg bg-white/5 backdrop-blur-lg flex justify-center items-center relative cursor-pointer overflow-hidden group ${
+                    loading ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                 >
                   <div className="absolute -right-10 origin-center top-1/2 -translate-y-1/2 
                     w-[120%] h-[120%] group-hover:w-10 group-hover:h-10 group-hover:right-10
