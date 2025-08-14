@@ -1,9 +1,9 @@
 const Footer = () => {
   const socialImgs = [
-    { name: "insta", imgPath: "/images/insta.png" },
-    { name: "fb", imgPath: "/images/fb.png" },
-    { name: "x", imgPath: "/images/x.png" },
-    { name: "linkedin", imgPath: "/images/linkedin.png" },
+    { name: "insta", imgPath: "/images/insta.png ",link: "https://www.instagram.com/farzeen_siddiquie/" },
+    { name: "fb", imgPath: "/images/fb.png",link: "https://www.facebook.com/profile.php?id=61563782512766" },
+    { name: "x", imgPath: "/images/x.png",link: "https://x.com/Farzeen3284" },
+    { name: "linkedin", imgPath: "/images/linkedin.png", link: "https://www.linkedin.com/in/farzeen-wasif" },
   ];
 
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
         
         {/* Left column */}
         <div className="flex md:flex-col justify-center">
-          <p>Terms & Conditions</p>
+           <p>Terms & Conditions</p>
         </div>
 
         {/* Middle column - social icons */}
@@ -23,11 +23,17 @@ const Footer = () => {
               key={index}
               className="border border-neutral-700 bg-neutral-800 flex justify-center items-center rounded-xl size-10 md:size-12 cursor-pointer transition-all duration-300 hover:bg-neutral-700"
             >
+              <a
+                key={index}
+              href={socialImg.link}
+              target="_blank"
+              rel="noopener noreferrer">
               <img
                 className="inline-block w-5 h-5 object-contain"
                 src={socialImg.imgPath}
                 alt={`${socialImg.name} icon`}
               />
+              </a>
             </div>
           ))}
         </div>
