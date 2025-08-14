@@ -55,7 +55,7 @@ export default function HeroText({ handleTypeDone, showButtons }) {
         className="w-full overflow-hidden"
       >
         <p className="margin-p text-md text-gray-200 sm:text-lg md:text-xl m-6">
-          I build web applications that are visually appealing, highly
+          I build applications that are visually appealing, highly
           functional, and user-friendly.
         </p>
       </motion.div>
@@ -78,7 +78,7 @@ export default function HeroText({ handleTypeDone, showButtons }) {
             </Link>
             <Link
               href="#contact"
-              className="flex justify-around px-6 py-3 w-[150px] sm:w-[220px] border-2 border-gray-500 text-gray-300 font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-[#6DB5D6] hover:to-[#012D2D] hover:text-white hover:border-transparent"
+              className="flex justify-around px-6 py-3 w-[150px] sm:w-[220px] border border-white/20 text-gray-300 font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-[#6DB5D6] hover:to-[#012D2D] hover:text-white hover:border-transparent"
             >
               <span>Contact Me</span>
               <span>↓</span>

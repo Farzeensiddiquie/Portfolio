@@ -10,29 +10,29 @@ export default function About() {
       id="about"
       className="w-full min-h-screen relative text-white flex items-center px-6 py-20"
     >
-      <div className="flex flex-col md:flex-row md:justify-around md:items-center w-full gap-10">
+      <div className="flex flex-col md:flex-row md:justify-around justify-center sm:items-center itmes-center md:items-center w-full gap-10">
 
         {/* Left - Text */}
         <motion.div
-          className="flex flex-col gap-5 text-center md:text-left max-w-2xl"
+          className="flex flex-col cursor-pointer bg-gray/10 backdrop-blur-lg border border-white/20  p-4 rounded-2xl gap-5 text-center md:text-left max-w-2xl"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            About Me
+            About <span className="text-[#14827ec1]">Me</span>
           </h2>
 
-          <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
             Hi! I'm Farzeen — an application developer passionate about building beautiful, high-performance apps.
           </p>
 
-          <p className="text-gray-300 text-base md:text-xl leading-relaxed mt-4">
+          <p className="text-gray-400 text-base md:text-xl leading-relaxed mt-4">
             I specialize in crafting responsive user interfaces, performant frontends, and smooth animations that feel natural. I enjoy solving problems, exploring new technologies, and creating products that people love to use.
           </p>
 
-          <p className="text-gray-300 text-base md:text-xl leading-relaxed mt-4">
+          <p className="text-gray-400 text-base md:text-xl leading-relaxed mt-4">
             I build web applications that are visually appealing, highly functional, and user-friendly. I also develop mobile apps using React Native and Expo Go, and design interfaces using tools like Figma. Additionally, I can create beautiful and functional desktop applications with Electron.js.
           </p>
         </motion.div>

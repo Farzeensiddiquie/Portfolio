@@ -5,12 +5,14 @@ import Navbar from "@/components/navbar/Navbar";
 import Contact from "@/components/contact/Contact";
 import Project from "@/components/project/Project";
 import Footer from "@/components/footer/Footer";
+import StatsSection from "@/components/StatsSection";
 
 export default async function Home() {
   return (
     <div className="bg">
       <Navbar />
       <Hero />
+      <StatsSection/>
       <About />
       <Project />
       <Contact />

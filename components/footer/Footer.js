@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Right column */}
         <div className="flex flex-col justify-center">
           <p className="text-center md:text-end">
-            © {new Date().getFullYear()} Farzeen Siddiqui. All rights reserved.
+            © {new Date().getFullYear()} Farzeen <span className="text-[#14827ec1]">Siddiqui</span> . All rights reserved.
           </p>
         </div>
         

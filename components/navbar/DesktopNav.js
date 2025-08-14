@@ -38,7 +38,7 @@ export default function DesktopNav() {
           key={link.id}
           href={`#${link.id}`}
           className={`hover:scale-110 transition duration-300 ease-in-out ${
-            activeSection === link.id ? "text-gray-400" : ""
+            activeSection === link.id ? "text-[#14827ec1]" : ""
           }`}
         >
           {link.label}
