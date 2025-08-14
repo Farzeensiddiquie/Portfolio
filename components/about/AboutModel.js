@@ -54,7 +54,7 @@ function SkullModel() {
   );
 }
 
-useGLTF.preload('/skull_face.glb');
+useGLTF.preload('/models/skull_face.glb');
 
 export default function AboutModel() {
   return (

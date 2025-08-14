@@ -1,6 +1,6 @@
 const Footer = () => {
   const socialImgs = [
-    { name: "insta", imgPath: "/images/insta.png ",link: "https://www.instagram.com/farzeen_siddiquie/" },
+    { name: "insta", imgPath: "/images/social-1.png ",link: "https://www.instagram.com/farzeen_siddiquie/" },
     { name: "fb", imgPath: "/images/fb.png",link: "https://www.facebook.com/profile.php?id=61563782512766" },
     { name: "x", imgPath: "/images/x.png",link: "https://x.com/Farzeen3284" },
     { name: "linkedin", imgPath: "/images/linkedin.png", link: "https://www.linkedin.com/in/farzeen-wasif" },

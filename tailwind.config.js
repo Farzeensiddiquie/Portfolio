@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,jsx}",
     "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}"
+    "./app/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
@@ -12,6 +12,15 @@ module.exports = {
         "black-100": "#1a1a1a",
         "black-200": "#0d0d0d",
         "white-50": "#fafafa",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 60s linear infinite",
       },
     },
   },

@@ -3,6 +3,7 @@
 * {
   margin: 0;
   font-family: monospace;
+  
 }
 
 ::selection {
@@ -89,4 +90,28 @@ html {
 }
 .hero-margin{
   margin-top: 85px;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-animation {
+  animation: marquee 60s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .marquee-animation {
+    animation-duration: 20s;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .marquee-animation {
+    animation-duration: 45s;
+  }
 }
