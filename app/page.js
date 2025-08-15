@@ -7,6 +7,7 @@ import Project from "@/components/project/Project";
 import Footer from "@/components/footer/Footer";
 import StatsSection from "@/components/StatsSection";
 import LogoShowcase from "@/components/LogoShowcase";
+import FeatureCards from "@/components/FeatureCards";
 
 export default async function Home() {
   return (
@@ -14,9 +15,10 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <LogoShowcase/>
-      <About />
       <StatsSection/>
       <Project />
+      <FeatureCards />
+      <About />
       <Contact />
       <Footer />
     </div>

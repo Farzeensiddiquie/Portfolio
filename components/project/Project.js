@@ -51,7 +51,7 @@ const Project = () => {
         <div className="flex xl:flex-row flex-col gap-10 justify-between">
           <div ref={rydeRef} className="h-full flex flex-col justify-between xl:w-[60%]">
             <div className="xl:h-[70vh] md:h-[50vh] h-96 relative">
-              <img className="w-full h-full object-cover rounded-xl absolute inset-0" src="/project1.png" alt="Ryde App Interface" />
+              <img className=" w-full h-full object-cover rounded-xl absolute inset-0" src="/project1.png" alt="Ryde App Interface" />
             </div>
             <div className="text-white-50 text-bold md:text-4xl">
               <h2 className="py-7">
@@ -69,7 +69,7 @@ const Project = () => {
             <div className="project" ref={libraryRef}>
               <div className="xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm ">
                 <img
-                className=" w-full h-full object-contain rounded-xl"
+                className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl"
                   src="/project2.png"
                   alt="Library Management Platform"
                 />
@@ -78,8 +78,8 @@ const Project = () => {
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
-              <div className="xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20">
-                <img src="/images/project3.png" alt="YC Directory App" />
+              <div className="xl:h-[37vh] overflow-hidden md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20">
+                <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out" src="/project2.png" alt="YC Directory App" />
               </div>
               <h2 className="py-2 text-lg md:text-xl lg:text-2xl font-semibold mt-5">Farzeen Finds - An Ecommerce App.</h2>
             </div>
