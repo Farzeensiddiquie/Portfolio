@@ -26,8 +26,9 @@ export default function DesktopNav() {
 
   const links = [
     { id: "hero", label: "Home" },
-    { id: "about", label: "About" },
     { id: "project", label: "Projects" },
+    { id: "about", label: "About" },
+    { id: "experience", label: "Experience" },
     { id: "contact", label: "Contact" },
   ];
 

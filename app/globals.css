@@ -115,3 +115,21 @@ html {
     animation-duration: 45s;
   }
 }
+.card {
+  --start: 0;
+  position: relative;
+  z-index: 30;
+  overflow: hidden;
+  transition: border-color 1s ease-in-out;
+}
+.glow {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(10px);
+  filter: saturate(200);
+}

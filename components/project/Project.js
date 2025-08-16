@@ -46,12 +46,12 @@ const Project = () => {
   }, []);
 
   return (
-    <div  id="project" ref={sectionRef} className="text-white w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center">
+    <section  id="project" ref={sectionRef} className="text-white w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center">
       <div className="w-full">
         <div className="flex xl:flex-row flex-col gap-10 justify-between">
           <div ref={rydeRef} className="h-full flex flex-col justify-between xl:w-[60%]">
-            <div className="xl:h-[70vh] md:h-[50vh] h-96 relative">
-              <img className=" w-full h-full object-cover rounded-xl absolute inset-0" src="/project1.png" alt="Ryde App Interface" />
+            <div className="overflow-hidden xl:h-[70vh] md:h-[50vh] h-96 relative">
+              <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-cover rounded-xl absolute inset-0" src="/project1.png" alt="Ryde App Interface" />
             </div>
             <div className="text-white-50 text-bold md:text-4xl">
               <h2 className="py-7">
@@ -69,7 +69,7 @@ const Project = () => {
             <div className="project" ref={libraryRef}>
               <div className="xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm ">
                 <img
-                className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl"
+                className="overflow-hidden hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl"
                   src="/project2.png"
                   alt="Library Management Platform"
                 />
@@ -78,15 +78,15 @@ const Project = () => {
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
-              <div className="xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm">
+              <div className="overflow-hidden xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm">
                 <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl" src="/project3.png" alt="Farzeen Finds" />
               </div>
-              <h2 className="py-2 text-lg md:text-xl lg:text-2xl font-semibold mt-5">Farzeen Finds - An Ecommerce App.</h2>
+              <h2 className="py-2 text-lg md:text-xl lg:text-2xl font-semibold mt-5">Alex Morgan's Portfolio.</h2>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

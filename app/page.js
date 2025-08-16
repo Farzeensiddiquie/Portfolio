@@ -8,17 +8,18 @@ import Footer from "@/components/footer/Footer";
 import StatsSection from "@/components/StatsSection";
 
 import FeatureCards from "@/components/FeatureCards";
+import Experience from "@/components/Experience";
 
 export default async function Home() {
   return (
     <div className="bg">
       <Navbar />
       <Hero />
-     
       <StatsSection/>
       <Project />
       <FeatureCards />
       <About />
+      <Experience/>
       <Contact />
       <Footer />
     </div>

@@ -10,7 +10,7 @@ export default function About() {
       id="about"
       className="w-full  relative text-white flex items-center px-6 py-20"
     >
-      <div className="flex flex-col md:flex-row md:justify-around justify-center sm:items-center itmes-center md:items-center w-full gap-10">
+      <div className="flex flex-col md:flex-row md:justify-center md:gap-50 justify-center sm:items-center itmes-center md:items-center w-full gap-10">
 
         {/* Left - Text */}
         <motion.div
@@ -45,10 +45,10 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="relative w-[320px] sm:w-[380px] md:w-[420px] h-[360px] sm:h-[420px] md:h-[500px] rounded-2xl bg-[#0c0c0d]/60 shadow-2xl ring-1 ring-black/40 overflow-hidden">
+          <div className="relative w-[320px] sm:w-[380px] md:w-[420px] h-[360px] sm:h-[420px] md:h-[500px] rounded-2xl bg-[#0c0c0d]/60 shadow-2xl ring-1 ring-black/40 backdrop-blur-sm overflow-hidden">
             
             {/* Orbiting small badges */}
-            <div className="pointer-events-none">
+            <div>
               <div className="absolute -top-1 left-6 orbit-badge">React</div>
               <div className="absolute -top-5 right-6 orbit-badge small">Next.js</div>
               <div className="absolute -bottom-2 left-8 orbit-badge small">Three</div>
