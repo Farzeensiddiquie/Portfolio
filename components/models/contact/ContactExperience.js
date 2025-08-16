@@ -9,7 +9,7 @@ const ContactExperience = () => {
        <color attach="background" args={["#202025"]} /> 
       <ambientLight intensity={0.5} color="#fff" />
 
-      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffff" />
+      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#fff" />
 
       <directionalLight
         position={[5, 9, 1]}

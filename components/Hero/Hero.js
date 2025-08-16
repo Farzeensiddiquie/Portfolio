@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import HeroText from './HeroText';
 import HeroImage from './HeroImage';
+import LogoShowcase from '../LogoShowcase';
 
 export default function Hero() {
   const [step, setStep] = useState(0);
@@ -80,8 +81,15 @@ export default function Hero() {
           >
             <HeroImage />
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="absolute bottom-0"
+          ><LogoShowcase/> </motion.div>
         </motion.div>
       )}
+      
     </section>
   );
 }

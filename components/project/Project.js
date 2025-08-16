@@ -78,8 +78,8 @@ const Project = () => {
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
-              <div className="xl:h-[37vh] overflow-hidden md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20">
-                <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out" src="/project2.png" alt="YC Directory App" />
+              <div className="xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm">
+                <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl" src="/project3.png" alt="Farzeen Finds" />
               </div>
               <h2 className="py-2 text-lg md:text-xl lg:text-2xl font-semibold mt-5">Farzeen Finds - An Ecommerce App.</h2>
             </div>

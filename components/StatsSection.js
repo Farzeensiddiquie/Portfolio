@@ -64,7 +64,7 @@ export default function StatsSection() {
     <div
       id="counter"
       ref={counterRef}
-      className="px-6 flex justify-center sm:px-12 xl:mt-0 mt-32"
+      className="px-6 pt-15 flex justify-center sm:px-12 xl:mt-0 mt-32"
     >
       <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl">
         {counterItems.map((item, index) => (

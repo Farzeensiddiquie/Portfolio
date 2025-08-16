@@ -6,7 +6,7 @@ import Contact from "@/components/contact/Contact";
 import Project from "@/components/project/Project";
 import Footer from "@/components/footer/Footer";
 import StatsSection from "@/components/StatsSection";
-import LogoShowcase from "@/components/LogoShowcase";
+
 import FeatureCards from "@/components/FeatureCards";
 
 export default async function Home() {
@@ -14,7 +14,7 @@ export default async function Home() {
     <div className="bg">
       <Navbar />
       <Hero />
-      <LogoShowcase/>
+     
       <StatsSection/>
       <Project />
       <FeatureCards />
