@@ -2,19 +2,11 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import TitleHeader from "./TitleHeader";
-import GlowCard from "./GlowCard";
-
-
 gsap.registerPlugin(ScrollTrigger);
-
 const expCards = [
   {
-    review:
-      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
+   logoPath: "/images/logo1.png",
     title: "Frontend Developer",
     date: "January 2023 - Present",
     responsibilities: [
@@ -24,9 +16,6 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
     logoPath: "/images/logo2.png",
     title: "Full Stack Developer",
     date: "June 2020 - December 2023",
@@ -37,10 +26,7 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
+   logoPath: "/images/logo3.png",
     title: "React Native Developer",
     date: "March 2019 - May 2020",
     responsibilities: [
@@ -99,7 +85,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="relative flex justify-center mt-20 md:mt-40 px-5 md:px-10 xl:px-0"
+      className="relative flex justify-center mt-20 md:mt-40 px-5 pt-10 pb-30 md:px-10 xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
@@ -111,27 +97,21 @@ const Experience = () => {
             {expCards.map((card) => (
               <div
                 key={card.title}
-                className="flex  flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between"
+                className="flex  flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-center"
               >
-                <div className="py-5 xl:w-2/6">
-                  <GlowCard card={card}>
-                    <div>
-                      <img src={card.imgPath} alt="exp-img" />
-                    </div>
-                  </GlowCard>
-                </div>
+           
 
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
                     {/* Timeline line */}
-                    <div className="absolute top-0 xl:left-[34.7vw] md:left-10 left-5 h-full flex justify-center">
+                    <div className="absolute top-0 xl:left-[16.7vw] md:left-[2.2vw] left-5 h-full flex justify-center">
                       <div className="timeline absolute z-30 h-[110%] -top-10 w-14 md:w-28 " />
                       <div className="w-[2px] h-full bg-[linear-gradient(0deg,rgba(69,222,196,0)_0%,#62e0ff_25%,#52aeff_37.51%,#fd5c79_62.83%,#6d45ce_92.91%)]" />
                     </div>
 
                     {/* Experience Text */}
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="md:size-15 p-3 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black/50 bg-black/80">
+                    <div className="expText flex xl:gap-25 md:gap-10 gap-5 relative z-20">
+                      <div className="md:size-15 p-3 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-6 border border-black/50 bg-black/80">
                         <img src={card.logoPath} alt="logo" />
                       </div>
                       <div>
@@ -162,5 +142,4 @@ const Experience = () => {
     </section>
   );
 };
-
 export default Experience;

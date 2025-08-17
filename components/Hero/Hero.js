@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import HeroText from './HeroText';
 import HeroImage from './HeroImage';
-import LogoShowcase from '../LogoShowcase';
 
 export default function Hero() {
   const [step, setStep] = useState(0);
@@ -60,7 +59,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="hero-margin flex flex-col-reverse md:flex-row items-center justify-around gap-10 px-6 md:px-16 py-15 md:h-[75vh]  mx-auto"
+          className="hero-margin flex flex-col-reverse md:flex-row items-center justify-around gap-10   py-15 md:h-[75vh]  mx-auto"
         >
           {/* LEFT: TEXT */}
           <motion.div
@@ -86,7 +85,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="absolute bottom-0"
-          ><LogoShowcase/> </motion.div>
+          > </motion.div>
         </motion.div>
       )}
       

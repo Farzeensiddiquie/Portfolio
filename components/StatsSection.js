@@ -66,12 +66,12 @@ export default function StatsSection() {
       ref={counterRef}
       className="px-6 pt-15 flex justify-center sm:px-12 xl:mt-0 mt-32"
     >
-      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl">
+      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-8xl">
         {counterItems.map((item, index) => (
           <div
             key={index}
             ref={(el) => el && (countersRef.current[index] = el)}
-            className="bg-gray/5 backdrop-blur-lg border border-white/20 rounded-lg p-10 flex flex-col justify-center items-center text-center"
+            className="bg-gray/5 min-w-[18vw] backdrop-blur-lg border border-white/20 rounded-lg p-10 flex flex-col justify-center items-center text-center"
           >
             <div className="counter-number text-white text-5xl font-bold mb-2">
               0 {item.suffix}

@@ -10,7 +10,7 @@ export default function About() {
       id="about"
       className="w-full  relative text-white flex items-center px-6 py-20"
     >
-      <div className="flex flex-col md:flex-row md:justify-center md:gap-50 justify-center sm:items-center itmes-center md:items-center w-full gap-10">
+      <div className="xl:flex md:gap-20 sm:gap-10 md:grid xl:gap-50 justify-center sm:items-center itmes-center md:items-center w-full gap-10">
 
         {/* Left - Text */}
         <motion.div

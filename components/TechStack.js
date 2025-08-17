@@ -15,12 +15,6 @@ const techStackModels = [
     rotation: [0, 0, 0],
   },
   {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
     name: "Backend Developer",
     modelPath: "/models/node-transformed.glb",
     scale: 5,
@@ -43,7 +37,6 @@ const techStackModels = [
 // Tech images fallback
 const techStackImgs = [
   { name: "React Developer", imgPath: "/images/logos/react.png" },
-  { name: "Python Developer", imgPath: "/images/logos/python.svg" },
   { name: "Backend Developer", imgPath: "/images/logos/node.png" },
   { name: "Interactive Developer", imgPath: "/images/logos/three.png" },
   { name: "Project Manager", imgPath: "/images/logos/git.svg" },
@@ -99,7 +92,7 @@ const TechStack = () => {
           sub="🤝 What I Bring to the Table"
         />
 
-        <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 md:mt-16" style={{marginTop: "4rem"}}>
+        <div className="grid xl:grid-cols-4 xl:px-25 md:grid-cols-2 grid-cols-1 xl:gap-16 md:gap-10 gap-5 md:mt-16" style={{marginTop: "4rem"}}>
           {techStackModels.map((tech, index) => (
             <div
               key={tech.name}

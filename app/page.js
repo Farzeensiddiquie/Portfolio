@@ -10,6 +10,8 @@ import StatsSection from "@/components/StatsSection";
 import FeatureCards from "@/components/FeatureCards";
 import Experience from "@/components/Experience";
 import TechStack from "@/components/TechStack";
+import LogoShowcase from "@/components/LogoShowcase";
+import SpinningGlobe from "@/components/SpinningGlob";
 
 export default async function Home() {
   return (
@@ -17,11 +19,13 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <StatsSection/>
+      <LogoShowcase/>
       <Project />
       <FeatureCards />
       <About />
-      <Experience/>
       <TechStack/>
+      <Experience/>
+      <SpinningGlobe/>
       <Contact />
       <Footer />
     </div>
