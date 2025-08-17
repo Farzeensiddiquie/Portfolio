@@ -9,6 +9,7 @@ import StatsSection from "@/components/StatsSection";
 
 import FeatureCards from "@/components/FeatureCards";
 import Experience from "@/components/Experience";
+import TechStack from "@/components/TechStack";
 
 export default async function Home() {
   return (
@@ -20,6 +21,7 @@ export default async function Home() {
       <FeatureCards />
       <About />
       <Experience/>
+      <TechStack/>
       <Contact />
       <Footer />
     </div>

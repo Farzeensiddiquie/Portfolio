@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TitleHeader from "./TitleHeader";
 import GlowCard from "./GlowCard";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const expCards = [
@@ -106,7 +107,7 @@ const Experience = () => {
           sub="💼 My Career Overview"
         />
         <div className="mt-32 pt-10 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
+          <div className="relative z-30 xl:space-y-32 space-y-10">
             {expCards.map((card) => (
               <div
                 key={card.title}
@@ -157,6 +158,7 @@ const Experience = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };
