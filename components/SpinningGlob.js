@@ -11,7 +11,6 @@ function Logo({ position, texture, size }) {
   const meshRef = useRef();
   const { camera } = useThree();
 
-  // keep aspect ratio of the texture
   const aspect = texture.image
     ? texture.image.width / texture.image.height
     : 1;
@@ -27,13 +26,9 @@ function Logo({ position, texture, size }) {
       const logoWorldPos = new THREE.Vector3();
       meshRef.current.getWorldPosition(logoWorldPos);
 
-      // Vector from globe center to logo
       const logoDir = logoWorldPos.clone().normalize();
-
-      // Vector from globe center to camera
       const camDir = camera.position.clone().normalize();
 
-      // Dot product → if > 0, logo is in front
       meshRef.current.visible = logoDir.dot(camDir) > 0;
     }
   });
@@ -52,18 +47,23 @@ function GlobeWithLogos({ logos }) {
   const { scene } = useGLTF("/models/scene.glb");
   const { size } = useThree();
 
-  // responsive scaling
-  let radius = 2.2;
-  let logoSize = 0.35;
-  if (size.width < 768) {
-    radius = 1.3;
-    logoSize = 0.2;
-  } else if (size.width < 1200) {
-    radius = 1.8;
-    logoSize = 0.28;
+  // Responsive globe scale
+  let globeRadius, logoSize;
+  if (size.width < 640) {
+    globeRadius = 1.2;
+    logoSize = 0.18;
+  } else if (size.width < 1024) {
+    globeRadius = 1.8;
+    logoSize = 0.26;
+  } else {
+    globeRadius = 2.4;
+    logoSize = 0.34;
   }
 
-  // rotate whole group (globe + logos)
+  // logos sit just 2% above globe surface
+  const logoRadius = globeRadius * 0.7; // logos just inside the surface
+
+
   useFrame(() => {
     if (globeGroup.current) globeGroup.current.rotation.y += 0.002;
   });
@@ -73,16 +73,16 @@ function GlobeWithLogos({ logos }) {
   return (
     <group ref={globeGroup}>
       {/* Globe */}
-      <primitive object={scene} scale={[radius, radius, radius]} />
+      <primitive object={scene} scale={[globeRadius, globeRadius, globeRadius]} />
 
-      {/* Logos attached to rotating group */}
+      {/* Logos */}
       {logoTextures.map((texture, i) => {
         const phi = Math.acos(-1 + (2 * i) / logoTextures.length);
         const theta = Math.sqrt(logos.length * Math.PI) * phi;
 
-        const x = (radius + 0.3) * Math.cos(theta) * Math.sin(phi);
-        const y = (radius + 0.3) * Math.sin(theta) * Math.sin(phi);
-        const z = (radius + 0.3) * Math.cos(phi);
+        const x = logoRadius * Math.cos(theta) * Math.sin(phi);
+        const y = logoRadius * Math.sin(theta) * Math.sin(phi);
+        const z = logoRadius * Math.cos(phi);
 
         return (
           <Logo key={i} position={[x, y, z]} texture={texture} size={logoSize} />
@@ -95,16 +95,23 @@ function GlobeWithLogos({ logos }) {
 // ================== Scene Wrapper ==================
 function GlobeScene() {
   const logos = [
-    "/images/logos/company-logo-1.png",
-    "/images/logos/company-logo-2.png",
-    "/images/logos/company-logo-3.png",
-    "/images/logos/company-logo-4.png",
-    "/images/logos/company-logo-5.png",
-    "/images/logos/company-logo-6.png",
-    "/images/logos/company-logo-7.png",
-    "/images/logos/company-logo-8.png",
-    "/images/logos/company-logo-8.png",
-    "/images/logos/company-logo-8.png",
+    "/images/logos/logo1.png",
+    "/images/logos/logo2.png",
+    "/images/logos/logo3.png",
+    "/images/logos/logo4.png",
+    "/images/logos/logo5.png",
+    "/images/logos/logo6.png",
+    "/images/logos/logo7.png",
+    "/images/logos/logo8.png",
+    "/images/logos/logo9.png",
+    "/images/logos/logo11.png",
+    "/images/logos/logo12.png",
+    "/images/logos/logo13.png",
+    "/images/logos/logo14.png",
+    "/images/logos/logo15.png",
+    "/images/logos/logo16.png",
+    "/images/logos/logo17.png",
+    "/images/logos/logo18.png",
   ];
 
   return (
