@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 // ================== Logo Component ==================
@@ -11,120 +11,155 @@ function Logo({ position, texture, size }) {
   const meshRef = useRef();
   const { camera } = useThree();
 
-  const aspect = texture.image
-    ? texture.image.width / texture.image.height
-    : 1;
-
-  useEffect(() => {
-    if (meshRef.current) {
-      meshRef.current.lookAt(new THREE.Vector3(0, 0, 0));
-    }
-  }, []);
-
+  // Billboard effect (logo always faces camera)
   useFrame(() => {
     if (meshRef.current) {
-      const logoWorldPos = new THREE.Vector3();
-      meshRef.current.getWorldPosition(logoWorldPos);
-
-      const logoDir = logoWorldPos.clone().normalize();
-      const camDir = camera.position.clone().normalize();
-
-      meshRef.current.visible = logoDir.dot(camDir) > 0;
+      meshRef.current.lookAt(camera.position);
     }
   });
 
   return (
     <mesh ref={meshRef} position={position}>
-      <planeGeometry args={[size * aspect, size]} />
-      <meshBasicMaterial map={texture} transparent side={THREE.DoubleSide} />
+      <planeGeometry args={[size, size]} />
+      <meshBasicMaterial map={texture} transparent />
     </mesh>
   );
 }
 
-// ================== Globe + Logos ==================
-function GlobeWithLogos({ logos }) {
-  const globeGroup = useRef();
-  const { scene } = useGLTF("/models/scene.glb");
-  const { size } = useThree();
+// ================== Globe Component ==================
+function TechGlobe({ techStack, radius, logoSize }) {
+  const groupRef = useRef();
 
-  // Responsive globe scale
-  let globeRadius, logoSize;
-  if (size.width < 640) {
-    globeRadius = 1.2;
-    logoSize = 0.18;
-  } else if (size.width < 1024) {
-    globeRadius = 1.8;
-    logoSize = 0.26;
-  } else {
-    globeRadius = 2.4;
-    logoSize = 0.34;
-  }
-
-  // logos sit just 2% above globe surface
-  const logoRadius = globeRadius * 0.7; // logos just inside the surface
-
-
+  // Rotate the whole globe
   useFrame(() => {
-    if (globeGroup.current) globeGroup.current.rotation.y += 0.002;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.003;
+    }
   });
 
-  const logoTextures = useLoader(THREE.TextureLoader, logos);
+  // Load textures
+  const textures = useTexture(techStack.map((t) => t.img));
+
+  // Sphere distribution
+  const positions = techStack.map((_, i) => {
+    const phi = Math.acos(1 - (2 * (i + 0.5)) / techStack.length);
+    const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
+    return new THREE.Vector3(
+      radius * Math.cos(theta) * Math.sin(phi),
+      radius * Math.sin(theta) * Math.sin(phi),
+      radius * Math.cos(phi)
+    );
+  });
 
   return (
-    <group ref={globeGroup}>
-      {/* Globe */}
-      <primitive object={scene} scale={[globeRadius, globeRadius, globeRadius]} />
-
-      {/* Logos */}
-      {logoTextures.map((texture, i) => {
-        const phi = Math.acos(-1 + (2 * i) / logoTextures.length);
-        const theta = Math.sqrt(logos.length * Math.PI) * phi;
-
-        const x = logoRadius * Math.cos(theta) * Math.sin(phi);
-        const y = logoRadius * Math.sin(theta) * Math.sin(phi);
-        const z = logoRadius * Math.cos(phi);
-
-        return (
-          <Logo key={i} position={[x, y, z]} texture={texture} size={logoSize} />
-        );
-      })}
+    <group ref={groupRef}>
+      {textures.map((tex, i) => (
+        <Logo key={i} position={positions[i]} texture={tex} size={logoSize} />
+      ))}
     </group>
   );
 }
 
-// ================== Scene Wrapper ==================
-function GlobeScene() {
-  const logos = [
-    "/images/logos/logo1.png",
-    "/images/logos/logo2.png",
-    "/images/logos/logo3.png",
-    "/images/logos/logo4.png",
-    "/images/logos/logo5.png",
-    "/images/logos/logo6.png",
-    "/images/logos/logo7.png",
-    "/images/logos/logo8.png",
-    "/images/logos/logo9.png",
-    "/images/logos/logo11.png",
-    "/images/logos/logo12.png",
-    "/images/logos/logo13.png",
-    "/images/logos/logo14.png",
-    "/images/logos/logo15.png",
-    "/images/logos/logo16.png",
-    "/images/logos/logo17.png",
-    "/images/logos/logo18.png",
+// ================== Canvas Wrapper ==================
+function GlobeCanvasWrapper() {
+  const techStack = [
+    { name: "Logo1", img: "/images/logos/logo1.png" },
+    { name: "Logo2", img: "/images/logos/logo2.png" },
+    { name: "Logo3", img: "/images/logos/logo3.png" },
+    { name: "Logo4", img: "/images/logos/logo4.png" },
+    { name: "Logo5", img: "/images/logos/logo5.png" },
+    { name: "Logo6", img: "/images/logos/logo6.png" },
+    { name: "Logo7", img: "/images/logos/logo7.png" },
+    { name: "Logo8", img: "/images/logos/logo8.png" },
+    { name: "Logo9", img: "/images/logos/logo9.png" },
+    { name: "Logo11", img: "/images/logos/logo11.png" },
+    { name: "Logo12", img: "/images/logos/logo12.png" },
+    { name: "Logo13", img: "/images/logos/logo13.png" },
+    { name: "Logo14", img: "/images/logos/logo14.png" },
+    { name: "Logo15", img: "/images/logos/logo15.png" },
+    { name: "Logo16", img: "/images/logos/logo16.png" },
+    { name: "Logo17", img: "/images/logos/logo17.png" },
+    { name: "Logo18", img: "/images/logos/logo18.png" },
+    { name: "Logo19", img: "/images/logos/logo19.png" },
+    { name: "Logo20", img: "/images/logos/logo20.png" },
+    { name: "Logo21", img: "/images/logos/logo21.png" },
+    { name: "Logo22", img: "/images/logos/logo22.png" },
+    { name: "Logo23", img: "/images/logos/logo23.png" },
+    { name: "Logo24", img: "/images/logos/logo24.png" },
+    { name: "Logo25", img: "/images/logos/logo25.png" },
+    { name: "Logo26", img: "/images/logos/logo26.png" },
+    { name: "Logo27", img: "/images/logos/logo27.png" },
+    { name: "Logo28", img: "/images/logos/logo28.png" },
+    { name: "Logo29", img: "/images/logos/logo29.png" },
+    { name: "Logo30", img: "/images/logos/logo30.png" },
+    { name: "Logo31", img: "/images/logos/logo31.png" },
+    { name: "Logo32", img: "/images/logos/logo32.png" },
+    { name: "Logo33", img: "/images/logos/logo33.png" },
+    { name: "Logo34", img: "/images/logos/logo34.png" },
+    { name: "Logo35", img: "/images/logos/logo35.png" },
+
+
+
   ];
 
+  // ================== Responsive Settings ==================
+  const [settings, setSettings] = useState({
+    radius: 3,
+    logoSize: 0.8,
+    cameraPos: 8,
+    height: "h-[500px]",
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 640) {
+        // Mobile
+        setSettings({
+          radius: 2,
+          logoSize: 0.4,
+          cameraPos: 6,
+          height: "h-[300px]",
+        });
+      } else if (window.innerWidth < 1024) {
+        // Tablet
+        setSettings({
+          radius: 2.5,
+          logoSize: 0.6,
+          cameraPos: 7,
+          height: "h-[400px]",
+        });
+      } else {
+        // Desktop
+        setSettings({
+          radius: 3,
+          logoSize: 0.8,
+          cameraPos: 8,
+          height: "h-[500px]",
+        });
+      }
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 7], fov: 45 }}
-      style={{ width: "100%", height: "100vh" }}
-    >
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[5, 5, 5]} />
-      <GlobeWithLogos logos={logos} />
-      <OrbitControls enableZoom={false} />
-    </Canvas>
+    <div className={`w-full ${settings.height}`}>
+      <Canvas camera={{ position: [0, 0, settings.cameraPos], fov: 50 }}>
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <TechGlobe
+          techStack={techStack}
+          radius={settings.radius}
+          logoSize={settings.logoSize}
+        />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
+      </Canvas>
+    </div>
   );
 }
 
-export default dynamic(() => Promise.resolve(GlobeScene), { ssr: false });
+export default dynamic(() => Promise.resolve(GlobeCanvasWrapper), {
+  ssr: false,
+});
