@@ -12,22 +12,25 @@ import Experience from "@/components/Experience";
 import TechStack from "@/components/TechStack";
 import LogoShowcase from "@/components/LogoShowcase";
 import SpinningGlobe from "@/components/SpinningGlob";
+import Preloader from "@/components/Preloader";
 
 export default async function Home() {
   return (
-    <div className="bg">
-      <Navbar />
-      <Hero />
-      <StatsSection/>
-      <LogoShowcase/>
-      <Project />
-      <FeatureCards />
-      <About />
-      <TechStack/>
-      <Experience/>
-      <SpinningGlobe/>
-      <Contact />
-      <Footer />
-    </div>
+    <Preloader>
+      <div className="bg">
+        <Navbar />
+        <Hero />
+        <StatsSection />
+        <LogoShowcase />
+        <Project />
+        <FeatureCards />
+        <About />
+        <TechStack />
+        <Experience />
+        <SpinningGlobe />
+        <Contact />
+        <Footer />
+      </div>
+    </Preloader>
   );
 }

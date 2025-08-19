@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import Link from "next/link";
 
-export default function HeroText({ handleTypeDone, showButtons }) {
+export default function HeroText({ showButtons }) {
   return (
     <div>
-      
+      {/* Intro Text */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export default function HeroText({ handleTypeDone, showButtons }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className=" text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-gray-400 to-gray-700 bg-clip-text text-transparent font-medium "
+        className="text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-gray-400 to-gray-700 bg-clip-text text-transparent font-medium"
       >
         <Typewriter
           words={[
@@ -43,11 +43,10 @@ export default function HeroText({ handleTypeDone, showButtons }) {
           typeSpeed={40}
           deleteSpeed={25}
           delaySpeed={2000}
-          onType={(count) => {
-            if (count === 0) handleTypeDone();
-          }}
         />
       </motion.div>
+
+      {/* Sub Text */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -55,10 +54,11 @@ export default function HeroText({ handleTypeDone, showButtons }) {
         className="w-full overflow-hidden"
       >
         <p className="margin-p text-md text-gray-200 sm:text-lg md:text-xl m-6">
-          I build applications that are visually appealing, highly
-          functional, and user-friendly.
+          I build applications that are visually appealing, highly functional,
+          and user-friendly.
         </p>
       </motion.div>
+
       {/* Buttons */}
       <div className="min-h-[64px]">
         {showButtons && (

@@ -1,44 +1,51 @@
-'use client';
+"use client";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
-const Project = () => {
+const projects = [
+  {
+    tag: "Featured Project",
+    title: "BrewVista – Your Coffee, Your Way",
+    description:
+      "A sleek coffee ordering app that lets users discover cafés, customize brews, and order their favorite coffee with just a few taps.",
+    image: "/project1.webp",
+  },
+  {
+    tag: "Web App",
+    title: "Library Management Platform",
+    description:
+      "An online platform to manage book inventory, member registrations, and borrowing history with advanced search and analytics features.",
+    image: "/project2.png",
+  },
+  {
+    tag: "Portfolio",
+    title: "Alex Morgan’s Portfolio",
+    description:
+      "A personal portfolio website showcasing creative projects, work experience, and interactive UI animations built with Next.js and GSAP.",
+    image: "/project3.png",
+  },
+];
+
+const ProjectShowcase = () => {
   const sectionRef = useRef(null);
-  const rydeRef = useRef(null);
-  const libraryRef = useRef(null);
-  const ycDirectoryRef = useRef(null);
 
   useGSAP(() => {
-    // Animation for the main section
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5 }
-    );
-
-    // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
-
-    cards.forEach((card, index) => {
+    gsap.utils.toArray(".project-card").forEach((card, index) => {
       gsap.fromTo(
         card,
+        { opacity: 0, y: 40 },
         {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          y: 0,
           opacity: 1,
+          y: 0,
           duration: 1,
-          delay: 0.3 * (index + 1),
+          delay: index * 0.2,
           scrollTrigger: {
             trigger: card,
-            start: "top bottom-=100",
+            start: "top 85%",
           },
         }
       );
@@ -46,48 +53,48 @@ const Project = () => {
   }, []);
 
   return (
-    <section  id="project" ref={sectionRef} className="text-white w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center">
-      <div className="w-full">
-        <div className="flex xl:flex-row flex-col gap-10 justify-between">
-          <div ref={rydeRef} className="h-full flex flex-col justify-between xl:w-[60%]">
-            <div className="overflow-hidden xl:h-[70vh] md:h-[50vh] h-96 relative">
-              <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-cover rounded-xl absolute inset-0" src="/project1.png" alt="Ryde App Interface" />
-            </div>
-            <div className="text-white-50 text-bold md:text-4xl">
-              <h2 className="py-7">
-                On-Demand Rides Made Simple with a Powerful,User-Friendly App
-                called Ryde
+    <section
+      ref={sectionRef}
+      id="projects"
+      className="w-full px-5 md:px-40 py-16 md:py-28"
+    >
+      <div className="flex bg-gray/5 backdrop-blur-lg border border-white/20 rounded-xl p-5 flex-col gap-28">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className={`project-card gap-10 flex flex-col md:flex-row items-center ${
+              index % 2 === 1 ? "md:flex-row-reverse" : ""
+            }`}
+          >
+            {/* Left Side - Text */}
+            <div
+              className={`md:w-1/2 z-30 bg-white/15 backdrop-blur-3xl border border-white/20 p-4 rounded-lg
+              ${index % 2 === 0 ? "xl:translate-x-24" : "xl:-translate-x-24"}`}
+            >
+              <p className="text-sm text-purple-400 font-semibold tracking-wide">
+                {project.tag}
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold mt-2 text-white">
+                {project.title}
               </h2>
-              <p className="text-sm space-y-5 mt-5">
-                An app built with React Native, Expo, & TailwindCSS for a fast,
-                user-friendly experience.
+              <p className="text-gray-300 mt-4 leading-relaxed text-[15px] md:text-base">
+                {project.description}
               </p>
             </div>
-          </div>
 
-          <div className="flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%] overflow-hidden">
-            <div className="project" ref={libraryRef}>
-              <div className="xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm ">
-                <img
-                className="overflow-hidden hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl"
-                  src="/project2.png"
-                  alt="Library Management Platform"
-                />
-              </div>
-              <h2 className="py-2 text-lg md:text-xl lg:text-2xl font-semibold mt-5">The Library Management Platform</h2>
-            </div>
-
-            <div className="project" ref={ycDirectoryRef}>
-              <div className="overflow-hidden xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0 bg-gray/5 border border-white/20 backfrop-blur-sm">
-                <img className="hover:scale-110 transform transition-transform duration-300 ease-in-out w-full h-full object-contain rounded-xl" src="/project3.png" alt="Farzeen Finds" />
-              </div>
-              <h2 className="py-2 text-lg md:text-xl lg:text-2xl font-semibold mt-5">Alex Morgan's Portfolio.</h2>
+            {/* Right Side - Image */}
+            <div className="md:w-1/2 rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out"
+              />
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default Project;
+export default ProjectShowcase;

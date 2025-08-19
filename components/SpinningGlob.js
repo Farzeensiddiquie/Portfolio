@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import * as THREE from "three";
+import TitleHeader from "./TitleHeader";
 
 // ================== Logo Component ==================
 function Logo({ position, texture, size }) {
@@ -97,9 +98,7 @@ function GlobeCanvasWrapper() {
     { name: "Logo33", img: "/images/logos/logo33.png" },
     { name: "Logo34", img: "/images/logos/logo34.png" },
     { name: "Logo35", img: "/images/logos/logo35.png" },
-
-
-
+    { name: "Logo36", img: "/images/logos/logo36.png" },
   ];
 
   // ================== Responsive Settings ==================
@@ -118,7 +117,7 @@ function GlobeCanvasWrapper() {
           radius: 2,
           logoSize: 0.4,
           cameraPos: 6,
-          height: "h-[300px]",
+          height: "h-[350px]",
         });
       } else if (window.innerWidth < 1024) {
         // Tablet
@@ -134,7 +133,7 @@ function GlobeCanvasWrapper() {
           radius: 3,
           logoSize: 0.8,
           cameraPos: 8,
-          height: "h-[500px]",
+          height: "h-[600px]",
         });
       }
     }
@@ -145,17 +144,26 @@ function GlobeCanvasWrapper() {
   }, []);
 
   return (
-    <div className={`w-full ${settings.height}`}>
-      <Canvas camera={{ position: [0, 0, settings.cameraPos], fov: 50 }}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={1} />
-        <TechGlobe
-          techStack={techStack}
-          radius={settings.radius}
-          logoSize={settings.logoSize}
-        />
-        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
-      </Canvas>
+    <div className="relative w-full flex flex-col items-center gap-6">
+      {/* ================== Heading ================== */}
+    <TitleHeader
+      title="Technologies I Work With"
+      sub="🌐 Technologies"
+    />
+
+      {/* ================== Globe Canvas ================== */}
+      <div className={`w-full ${settings.height}`}>
+        <Canvas camera={{ position: [0, 0, settings.cameraPos], fov: 50 }}>
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 5, 5]} intensity={1} />
+          <TechGlobe
+            techStack={techStack}
+            radius={settings.radius}
+            logoSize={settings.logoSize}
+          />
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
+        </Canvas>
+      </div>
     </div>
   );
 }

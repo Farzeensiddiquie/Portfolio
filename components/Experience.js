@@ -85,13 +85,14 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="relative flex justify-center mt-20 md:mt-40 px-5 pt-10 pb-30 md:px-10 xl:px-0"
+      className="relative items center flex justify-center mt-20 md:mt-40 px-5 pt-10 pb-30 md:px-10 xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
           title="Professional Work Experience"
           sub="💼 My Career Overview"
         />
+        <div className="flex  justify-center w-full h-full z-10" >
         <div className="mt-32 pt-10 relative">
           <div className="relative z-30 xl:space-y-32 space-y-10">
             {expCards.map((card) => (
@@ -104,7 +105,7 @@ const Experience = () => {
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
                     {/* Timeline line */}
-                    <div className="absolute top-0 xl:left-[16.7vw] md:left-[2.2vw] left-5 h-full flex justify-center">
+                    <div className="absolute top-0 xl:left-[14rem] md:left-[2.2vw] left-5 h-full flex justify-center">
                       <div className="timeline absolute z-30 h-[110%] -top-10 w-14 md:w-28 " />
                       <div className="w-[2px] h-full bg-[linear-gradient(0deg,rgba(69,222,196,0)_0%,#62e0ff_25%,#52aeff_37.51%,#fd5c79_62.83%,#6d45ce_92.91%)]" />
                     </div>
@@ -138,7 +139,7 @@ const Experience = () => {
           </div>
         </div>
       </div>
-      
+      </div>
     </section>
   );
 };

@@ -1,18 +1,15 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
- import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 
 export const metadata = {
   title: "Farzeen Siddiqui | Portfolio",
@@ -64,10 +61,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico?v=2",
   },
-
-  
 };
-
 
 export default function RootLayout({ children }) {
   return (
@@ -76,10 +70,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         
-        <ProgressBarProvider>
-              <ProgressBar className="fixed z-50 h-10 shadow-lg shadow-sky-500/20 bg-red-500 top-0" />
-              {children}
-            </ProgressBarProvider>
+        {children}
       </body>
     </html>
   );
