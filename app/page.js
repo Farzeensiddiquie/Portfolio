@@ -6,11 +6,8 @@ import Contact from "@/components/contact/Contact";
 import Project from "@/components/project/Project";
 import Footer from "@/components/footer/Footer";
 import StatsSection from "@/components/StatsSection";
-
 import FeatureCards from "@/components/FeatureCards";
 import Experience from "@/components/Experience";
-import TechStack from "@/components/TechStack";
-import LogoShowcase from "@/components/LogoShowcase";
 import SpinningGlobe from "@/components/SpinningGlob";
 import Preloader from "@/components/Preloader";
 
@@ -21,11 +18,9 @@ export default async function Home() {
         <Navbar />
         <Hero />
         <StatsSection />
-        <LogoShowcase />
         <Project />
         <FeatureCards />
         <About />
-        <TechStack />
         <Experience />
         <SpinningGlobe />
         <Contact />

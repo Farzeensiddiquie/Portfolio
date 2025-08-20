@@ -55,7 +55,7 @@ const ProjectShowcase = () => {
   return (
     <section
       ref={sectionRef}
-      id="projects"
+      id="project"
       className="w-full px-5 md:px-40 py-16 md:py-28"
     >
       <div className="flex bg-gray/5 backdrop-blur-lg border border-white/20 rounded-xl p-5 flex-col gap-28">
@@ -71,7 +71,7 @@ const ProjectShowcase = () => {
               className={`md:w-1/2 z-30 bg-white/15 backdrop-blur-3xl border border-white/20 p-4 rounded-lg
               ${index % 2 === 0 ? "xl:translate-x-24" : "xl:-translate-x-24"}`}
             >
-              <p className="text-sm text-purple-400 font-semibold tracking-wide">
+              <p className="text-sm text-[#14827ec1] font-semibold tracking-wide">
                 {project.tag}
               </p>
               <h2 className="text-2xl md:text-3xl font-bold mt-2 text-white">
