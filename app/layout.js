@@ -84,10 +84,9 @@ export const metadata = {
 
   // ✅ Google Search Console verification
   verification: {
-  google:"5s6K69ZP7tqULM0bCGDTOsVfUPOOJKxlmysWnNv0ffo",
+  google:"kCk7rusaqikn6su9cco5Luobqb-ptsFHYGqNWCCjBzU",
   },
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
