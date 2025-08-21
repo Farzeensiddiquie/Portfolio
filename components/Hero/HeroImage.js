@@ -11,6 +11,7 @@ export default function HeroImage() {
         <img
           src="https://ik.imagekit.io/cpnw7c0xpe/Tailwind%20Components/Components/hero-placeholder.png?updatedAt=1739628240660"
           alt="Farzeen Wasif"
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-contain p-4 sm:p-6 md:p-8"
         />
 
