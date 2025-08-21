@@ -1,61 +1,51 @@
-"use client";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import Computer from "./Computer";
 
-// ✅ Separate ground plane component
-const Ground = () => (
-  <mesh
-    receiveShadow
-    position={[0, -1.5, 0]}
-    rotation={[-Math.PI / 2, 0, 0]}
-  >
-    <planeGeometry args={[30, 30]} />
-    <meshStandardMaterial color="#3C3C3C" />
-  </mesh>
-);
+import Computer from "./Computer";
 
 const ContactExperience = () => {
   return (
-    <Canvas
-      shadows
-      camera={{ position: [0, 3, 7], fov: 45 }}
+    <div
+      role="img"
       aria-label="3D Computer Model Scene"
+      className="w-full h-full"
     >
-      {/* Background color */}
-      <color attach="background" args={["#202025"]} />
+      <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }}>
+        <color attach="background" args={["#202025"]} />
+        <ambientLight intensity={0.5} color="#fff" />
 
-      {/* Lighting setup */}
-      <ambientLight intensity={0.5} color="#fff" />
-      <hemisphereLight intensity={0.35} groundColor="black" />
-      <directionalLight
-        position={[5, 5, 3]}
-        intensity={2.5}
-        color="#fff"
-        castShadow
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-      />
+        <directionalLight position={[5, 5, 3]} intensity={2.5} color="#fff" />
+        <directionalLight
+          position={[5, 9, 1]}
+          castShadow
+          intensity={2.5}
+          color="#fff"
+        />
 
-      {/* Controls */}
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        minPolarAngle={Math.PI / 5}
-        maxPolarAngle={Math.PI / 2}
-        makeDefault
-      />
+        <OrbitControls
+          enableZoom={false}
+          minPolarAngle={Math.PI / 5}
+          maxPolarAngle={Math.PI / 2}
+        />
 
-      {/* Scene content */}
-      <Ground />
+        {/* Ground Plane */}
+        <group scale={[1, 1, 1]}>
+          <mesh
+            receiveShadow
+            position={[0, -1.5, 0]}
+            rotation={[-Math.PI / 2, 0, 0]}
+          >
+            <planeGeometry args={[30, 30]} />
+            <meshStandardMaterial color="#3C3C3C" />
+          </mesh>
+        </group>
 
-      <group scale={0.03} position={[0, -1.49, -2]} castShadow>
-        <Suspense fallback={null}>
+        {/* Computer Model */}
+        <group scale={0.03} position={[0, -1.49, -2]} castShadow>
           <Computer />
-        </Suspense>
-      </group>
-    </Canvas>
+        </group>
+      </Canvas>
+    </div>
   );
 };
 
