@@ -41,7 +41,7 @@ const expCards = [
 
 const Experience = () => {
   useGSAP(() => {
-    // Animate each timeline card
+    // Animate timeline cards
     gsap.utils.toArray(".timeline-card").forEach((card) => {
       gsap.from(card, {
         xPercent: -100,
@@ -91,13 +91,16 @@ const Experience = () => {
     <section
       id="experience"
       className="relative flex justify-center mt-20 md:mt-40 px-5 pt-10 md:px-10 xl:px-0"
+      aria-labelledby="experience-title"
     >
       <div className="w-full h-full md:px-20 px-5">
-        {/* Section Title -> h2 for semantic correctness */}
+        {/* Section Title */}
         <TitleHeader
+          id="experience-title"
           title="Professional Work Experience"
           sub="💼 My Career Overview"
           as="h2"
+          className="text-3xl md:text-4xl font-bold"
         />
 
         <div className="flex justify-center w-full h-full z-10">
@@ -119,22 +122,26 @@ const Experience = () => {
                       {/* Experience Text */}
                       <div className="expText flex xl:gap-25 md:gap-10 gap-5 relative z-20">
                         <div className="md:size-15 p-3 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-6 border border-black/50 bg-black/80">
-                          <img src={card.logoPath} alt={`${card.title} logo`} />
+                          <img
+                            src={card.logoPath}
+                            alt={`${card.title} company logo`}
+                            className="max-w-full max-h-full object-contain"
+                          />
                         </div>
                         <div>
-                          {/* h3 for each job title */}
-                          <h3 className="font-semibold text-white text-2xl md:text-3xl">
+                          {/* Job Title (updated h3 -> h2) */}
+                          <h2 className="font-semibold text-white text-2xl md:text-3xl">
                             {card.title}
-                          </h3>
-                          <p className="my-5 text-white/50">
+                          </h2>
+                          <p className="my-5 text-white/50 text-base md:text-lg">
                             🗓️&nbsp;{card.date}
                           </p>
-                          <p className="text-[#14827ec1] italic">
+                          <p className="text-[#14827ec1] italic text-base md:text-lg">
                             Responsibilities
                           </p>
                           <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white/70">
                             {card.responsibilities.map((responsibility, index) => (
-                              <li key={index} className="text-lg">
+                              <li key={index} className="text-lg md:text-xl">
                                 {responsibility}
                               </li>
                             ))}
