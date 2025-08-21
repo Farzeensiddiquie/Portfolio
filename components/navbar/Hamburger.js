@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 export default function Hamburger({ menuOpen, setMenuOpen }) {
   return (
     <button
+    name='menu'
       className="md:hidden text-white z-[60]"
       onClick={() => setMenuOpen(!menuOpen)}
     >
