@@ -1,6 +1,9 @@
+"use client";
+import React, { memo, Suspense } from "react";
 import { useGLTF } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 
-export function Computer(props) {
+function ComputerModel(props) {
   const { nodes, materials } = useGLTF(
     "/models/computer-optimized-transformed.glb"
   );
@@ -24,6 +27,19 @@ export function Computer(props) {
     </group>
   );
 }
+
+// ✅ Memoized for performance
+const Computer = memo((props) => (
+  <Suspense
+    fallback={
+      <Html center>
+        <span className="text-white text-sm animate-pulse">Loading 3D Model...</span>
+      </Html>
+    }
+  >
+    <ComputerModel {...props} />
+  </Suspense>
+));
 
 useGLTF.preload("/models/computer-optimized-transformed.glb");
 

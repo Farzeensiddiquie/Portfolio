@@ -8,32 +8,46 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full  relative text-white flex items-center px-6 py-20"
+      aria-labelledby="about-heading"
+      className="w-full relative text-white flex items-center px-6 py-20"
     >
-      <div className="xl:flex md:gap-20 sm:gap-10 md:grid xl:gap-50 justify-center sm:items-center itmes-center md:items-center w-full gap-10">
+      <div className="xl:flex md:gap-20 sm:gap-10 md:grid xl:gap-50 justify-center sm:items-center items-center md:items-center w-full gap-10">
 
         {/* Left - Text */}
         <motion.div
-          className="flex flex-col cursor-pointer bg-gray/10 backdrop-blur-lg border border-white/20  p-4 rounded-2xl gap-5 text-center md:text-left max-w-2xl"
+          className="flex flex-col cursor-pointer bg-gray/10 backdrop-blur-lg border border-white/20 p-4 rounded-2xl gap-5 text-center md:text-left max-w-2xl"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+          {/* Section Heading */}
+          <h2
+            id="about-heading"
+            className="text-4xl md:text-5xl font-extrabold tracking-tight"
+          >
             About <span className="text-[#14827ec1]">Me</span>
           </h2>
 
+          {/* Content */}
           <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
-            Hi! I'm Farzeen — an application developer passionate about building beautiful, high-performance apps.
+            Hi! I'm Farzeen — an application developer passionate about building
+            beautiful, high-performance apps.
           </p>
 
           <p className="text-gray-400 text-base md:text-xl leading-relaxed mt-4">
-            I specialize in crafting responsive user interfaces, performant frontends, and smooth animations that feel natural. I enjoy solving problems, exploring new technologies, and creating products that people love to use.
+            I specialize in crafting responsive user interfaces, performant
+            frontends, and smooth animations that feel natural. I enjoy solving
+            problems, exploring new technologies, and creating products that
+            people love to use.
           </p>
 
           <p className="text-gray-400 text-base md:text-xl leading-relaxed mt-4">
-            I build web applications that are visually appealing, highly functional, and user-friendly. I also develop mobile apps using React Native and Expo Go, and design interfaces using tools like Figma. Additionally, I can create beautiful and functional desktop applications with Electron.js.
+            I build web applications that are visually appealing, highly
+            functional, and user-friendly. I also develop mobile apps using
+            React Native and Expo Go, and design interfaces using tools like
+            Figma. Additionally, I can create beautiful and functional desktop
+            applications with Electron.js.
           </p>
         </motion.div>
 
@@ -65,13 +79,13 @@ export default function About() {
 
       <style jsx>{`
         .orbit-badge {
-          background: rgba(20,20,22,0.9);
-          border: 1px solid rgba(255,255,255,0.04);
+          background: rgba(20, 20, 22, 0.9);
+          border: 1px solid rgba(255, 255, 255, 0.04);
           padding: 6px 10px;
           border-radius: 999px;
           font-size: 13px;
           color: #e6eef8;
-          box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+          box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
           transform-origin: center;
           animation: float 5s ease-in-out infinite;
         }
@@ -81,9 +95,18 @@ export default function About() {
           animation-duration: 6.5s;
         }
         @keyframes float {
-          0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-          50% { transform: translateY(-8px) rotate(6deg); opacity: .95; }
-          100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+          }
+          50% {
+            transform: translateY(-8px) rotate(6deg);
+            opacity: 0.95;
+          }
+          100% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+          }
         }
       `}</style>
     </section>

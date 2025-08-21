@@ -12,11 +12,9 @@ function Logo({ position, texture, size }) {
   const meshRef = useRef();
   const { camera } = useThree();
 
-  // Billboard effect (logo always faces camera)
+  // Billboard effect → logos always face camera
   useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.lookAt(camera.position);
-    }
+    if (meshRef.current) meshRef.current.lookAt(camera.position);
   });
 
   return (
@@ -31,17 +29,15 @@ function Logo({ position, texture, size }) {
 function TechGlobe({ techStack, radius, logoSize }) {
   const groupRef = useRef();
 
-  // Rotate the whole globe
+  // Globe rotation
   useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += 0.003;
-    }
+    if (groupRef.current) groupRef.current.rotation.y += 0.003;
   });
 
   // Load textures
   const textures = useTexture(techStack.map((t) => t.img));
 
-  // Sphere distribution
+  // Distribute logos on sphere
   const positions = techStack.map((_, i) => {
     const phi = Math.acos(1 - (2 * (i + 0.5)) / techStack.length);
     const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
@@ -64,7 +60,7 @@ function TechGlobe({ techStack, radius, logoSize }) {
 // ================== Canvas Wrapper ==================
 function GlobeCanvasWrapper() {
   const techStack = [
-    { name: "Logo1", img: "/images/logos/logo1.png" },
+      { name: "Logo1", img: "/images/logos/logo1.png" },
     { name: "Logo2", img: "/images/logos/logo2.png" },
     { name: "Logo3", img: "/images/logos/logo3.png" },
     { name: "Logo4", img: "/images/logos/logo4.png" },
@@ -101,7 +97,7 @@ function GlobeCanvasWrapper() {
     { name: "Logo36", img: "/images/logos/logo36.png" },
   ];
 
-  // ================== Responsive Settings ==================
+  // Responsive Settings
   const [settings, setSettings] = useState({
     radius: 3,
     logoSize: 0.8,
@@ -112,48 +108,38 @@ function GlobeCanvasWrapper() {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 640) {
-        // Mobile
-        setSettings({
-          radius: 2,
-          logoSize: 0.4,
-          cameraPos: 6,
-          height: "h-[350px]",
-        });
+        setSettings({ radius: 2, logoSize: 0.4, cameraPos: 6, height: "h-[350px]" });
       } else if (window.innerWidth < 1024) {
-        // Tablet
-        setSettings({
-          radius: 2.5,
-          logoSize: 0.6,
-          cameraPos: 7,
-          height: "h-[400px]",
-        });
+        setSettings({ radius: 2.5, logoSize: 0.6, cameraPos: 7, height: "h-[400px]" });
       } else {
-        // Desktop
-        setSettings({
-          radius: 3,
-          logoSize: 0.8,
-          cameraPos: 8,
-          height: "h-[600px]",
-        });
+        setSettings({ radius: 3, logoSize: 0.8, cameraPos: 8, height: "h-[600px]" });
       }
     }
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="relative w-full flex flex-col items-center gap-6">
-      {/* ================== Heading ================== */}
-    <TitleHeader
-      title="Technologies I Work With"
-      sub="🌐 Technologies"
-    />
+    <section
+      className="relative w-full flex flex-col items-center gap-6"
+      aria-labelledby="tech-stack-heading"
+    >
+      {/* Section Heading */}
+      <TitleHeader
+        id="tech-stack-heading"
+        title="Technologies I Work With"
+        sub="🌐 Technologies"
+      />
 
-      {/* ================== Globe Canvas ================== */}
+      {/* Globe Canvas */}
       <div className={`w-full ${settings.height}`}>
-        <Canvas camera={{ position: [0, 0, settings.cameraPos], fov: 50 }}>
+        <Canvas
+          camera={{ position: [0, 0, settings.cameraPos], fov: 50 }}
+          dpr={[1, 2]} // performance boost
+          role="img"
+          aria-label="3D rotating globe showcasing technology logos"
+        >
           <ambientLight intensity={0.6} />
           <directionalLight position={[5, 5, 5]} intensity={1} />
           <TechGlobe
@@ -164,10 +150,8 @@ function GlobeCanvasWrapper() {
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
         </Canvas>
       </div>
-    </div>
+    </section>
   );
 }
 
-export default dynamic(() => Promise.resolve(GlobeCanvasWrapper), {
-  ssr: false,
-});
+export default dynamic(() => Promise.resolve(GlobeCanvasWrapper), { ssr: false });

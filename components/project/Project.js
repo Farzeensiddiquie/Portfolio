@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -56,27 +57,37 @@ const ProjectShowcase = () => {
     <section
       ref={sectionRef}
       id="project"
+      aria-labelledby="projects-heading"
       className="w-full px-5 md:px-40 py-16 md:py-28"
     >
+      {/* Section Heading */}
+      <h2
+        id="projects-heading"
+        className="relative  text-3xl md:text-4xl font-bold text-white mb-16 pb-10 text-center"
+      >
+        Featured Projects
+      </h2>
+
       <div className="flex bg-gray/5 backdrop-blur-lg border border-white/20 rounded-xl p-5 flex-col gap-28">
         {projects.map((project, index) => (
-          <div
+          <article
             key={index}
             className={`project-card gap-10 flex flex-col md:flex-row items-center ${
               index % 2 === 1 ? "md:flex-row-reverse" : ""
             }`}
+            aria-label={project.title}
           >
             {/* Left Side - Text */}
             <div
-              className={`md:w-1/2 z-30 bg-white/15 backdrop-blur-3xl border border-white/20 p-4 rounded-lg
+              className={`md:w-1/2 z-30 bg-white/15 backdrop-blur-3xl border border-white/20 p-6 rounded-lg
               ${index % 2 === 0 ? "xl:translate-x-24" : "xl:-translate-x-24"}`}
             >
               <p className="text-sm text-[#14827ec1] font-semibold tracking-wide">
                 {project.tag}
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold mt-2 text-white">
+              <h3 className="text-2xl md:text-3xl font-bold mt-2 text-white">
                 {project.title}
-              </h2>
+              </h3>
               <p className="text-gray-300 mt-4 leading-relaxed text-[15px] md:text-base">
                 {project.description}
               </p>
@@ -84,13 +95,17 @@ const ProjectShowcase = () => {
 
             {/* Right Side - Image */}
             <div className="md:w-1/2 rounded-xl overflow-hidden shadow-lg">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover transition-transform duration-500 ease-in-out hover:scale-105 focus:scale-105"
+                priority={index === 0} // only first project is priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
