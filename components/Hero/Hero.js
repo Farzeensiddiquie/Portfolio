@@ -10,7 +10,6 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Show buttons slightly after mount
     const timer = setTimeout(() => setShowButtons(true), 1000);
     return () => clearTimeout(timer);
   }, []);

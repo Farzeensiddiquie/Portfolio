@@ -14,10 +14,14 @@ export default function HeroText({ showButtons }) {
         className="leading-12"
       >
         <p className="text-xl pl-2 text-gray-400">Hi, I am</p>
-        <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold">
+
+        {/* MAIN H1 (biggest title on page) */}
+        <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold !text-[2rem] sm:!text-[2.5rem] md:!text-[4rem]">
           Farzeen <span className="text-[#14827ec1]">Wasif</span>
         </h1>
-        <h2 className="bg-gradient-to-r from-gray-400 to-gray-700 bg-clip-text text-transparent text-[1.4rem] sm:text-[1.5rem] mt-2">
+
+        {/* Secondary heading */}
+        <h2 className="bg-gradient-to-r from-gray-400 to-gray-700 bg-clip-text text-transparent text-lg sm:text-xl mt-2">
           I am here to
         </h2>
       </motion.div>
