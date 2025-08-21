@@ -68,14 +68,14 @@ export default function HeroText({ showButtons }) {
             transition={{ duration: 0.8, delay: 1 }}
             className="flex flex-wrap justify-center md:justify-start text-lg gap-4"
           >
-            <Link
+            <a
               href="Farzeen_Wasif_Developer_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 text-center w-[150px] sm:w-[220px] bg-[linear-gradient(135deg,_#6DB5D6,_#2D7373,_#012D2D)] text-white font-semibold rounded-lg shadow-md hover:brightness-110 hover:scale-105 transition-transform duration-300"
             >
               View CV
-            </Link>
+            </a>
             <Link
               href="#contact"
               className="flex justify-around px-6 py-3 w-[150px] sm:w-[220px] border border-white/20 text-gray-300 font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-[#6DB5D6] hover:to-[#012D2D] hover:text-white hover:border-transparent"
