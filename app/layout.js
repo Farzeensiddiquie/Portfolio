@@ -58,7 +58,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    site: "@Farzeen3284", // replace with your X/Twitter handle if you have one
+    site: "@Farzeen3284",
     creator: "@Farzeen3284",
     title: "Farzeen Wasif | Portfolio",
     description:
@@ -81,6 +81,11 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico?v=2",
   },
+
+  // ✅ Google Search Console verification
+  verification: {
+    google: "5s6K69ZP7tqULM0bCGDTOsVfUPOOJKxlmysWnNv0ffo",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -97,10 +102,10 @@ export default function RootLayout({ children }) {
               name: "Farzeen Wasif",
               url: "https://farzeensportfolio.vercel.app/",
               sameAs: [
-                "www.linkedin.com/in/farzeen-wasif", // update
-                "https://github.com/Farzeensiddiquie", // update
+                "https://www.linkedin.com/in/farzeen-wasif", 
+                "https://github.com/Farzeensiddiquie",
               ],
-              jobTitle: "Full stack Developer",
+              jobTitle: "Full Stack Developer",
               worksFor: {
                 "@type": "Organization",
                 name: "Freelance / Open to Work",
