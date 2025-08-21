@@ -5,9 +5,9 @@ const TitleHeader = ({ title, sub }) => {
         <p>{sub}</p>
       </div>
       <div>
-        <h1 className="font-semibold text-5xl md:text-6xl text-white text-center">
+        <p className="font-semibold text-5xl md:text-6xl text-white text-center">
           {title}
-        </h1>
+        </p>
       </div>
     </div>
   );
