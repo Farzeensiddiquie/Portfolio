@@ -1,12 +1,14 @@
-'use client'
+"use client";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TitleHeader from "./TitleHeader";
+
 gsap.registerPlugin(ScrollTrigger);
+
 const expCards = [
   {
-   logoPath: "/images/logo1.png",
+    logoPath: "/images/logo1.png",
     title: "Frontend Developer",
     date: "August 2024 - Present",
     responsibilities: [
@@ -26,7 +28,7 @@ const expCards = [
     ],
   },
   {
-   logoPath: "/images/logo3.png",
+    logoPath: "/images/logo3.png",
     title: "React Native Developer",
     date: "August 2025 - Present",
     responsibilities: [
@@ -39,11 +41,11 @@ const expCards = [
 
 const Experience = () => {
   useGSAP(() => {
+    // Animate each timeline card
     gsap.utils.toArray(".timeline-card").forEach((card) => {
       gsap.from(card, {
         xPercent: -100,
         opacity: 0,
-        transformOrigin: "left left",
         duration: 1,
         ease: "power2.inOut",
         scrollTrigger: {
@@ -53,6 +55,7 @@ const Experience = () => {
       });
     });
 
+    // Animate timeline shrink
     gsap.to(".timeline", {
       transformOrigin: "bottom bottom",
       ease: "power1.inOut",
@@ -63,84 +66,91 @@ const Experience = () => {
         onUpdate: (self) => {
           gsap.to(".timeline", {
             scaleY: 1 - self.progress,
+            overwrite: "auto",
           });
         },
       },
     });
 
+    // Animate text inside cards
     gsap.utils.toArray(".expText").forEach((text) => {
       gsap.from(text, {
         opacity: 0,
-        xPercent: 0,
+        xPercent: -20,
         duration: 1,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: text,
-          start: "top 60%",
+          start: "top 70%",
         },
       });
-    }, "<");
+    });
   }, []);
 
   return (
     <section
       id="experience"
-      className="relative items center flex justify-center mt-20 md:mt-40 px-5 pt-10 pb-30 md:px-10 xl:px-0"
+      className="relative flex justify-center mt-20 md:mt-40 px-5 pt-10 md:px-10 xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
+        {/* Section Title -> h2 for semantic correctness */}
         <TitleHeader
           title="Professional Work Experience"
           sub="💼 My Career Overview"
+          as="h2"
         />
-        <div className="flex  justify-center w-full h-full z-10" >
-        <div className="mt-32 pt-10 relative">
-          <div className="relative z-30 xl:space-y-32 space-y-10">
-            {expCards.map((card) => (
-              <div
-                key={card.title}
-                className="flex  flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-center"
-              >
-           
 
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    {/* Timeline line */}
-                    <div className="absolute top-0 xl:left-[14rem] md:left-[2.2vw] left-5 h-full flex justify-center">
-                      <div className="timeline absolute z-30 h-[110%] -top-10 w-14 md:w-28 " />
-                      <div className="w-[2px] h-full bg-[linear-gradient(0deg,rgba(69,222,196,0)_0%,#62e0ff_25%,#52aeff_37.51%,#fd5c79_62.83%,#6d45ce_92.91%)]" />
-                    </div>
-
-                    {/* Experience Text */}
-                    <div className="expText flex xl:gap-25 md:gap-10 gap-5 relative z-20">
-                      <div className="md:size-15 p-3 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-6 border border-black/50 bg-black/80">
-                        <img src={card.logoPath} alt="logo" />
+        <div className="flex justify-center w-full h-full z-10">
+          <div className="mt-32 pt-10 relative">
+            <div className="relative z-30 xl:space-y-32 space-y-10">
+              {expCards.map((card) => (
+                <article
+                  key={card.title}
+                  className="timeline-card flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-center"
+                >
+                  <div className="xl:w-4/6">
+                    <div className="flex items-start">
+                      {/* Timeline line */}
+                      <div className="absolute top-0 xl:left-[14rem] md:left-[2.2vw] left-5 h-full flex justify-center">
+                        <div className="timeline absolute z-30 h-[110%] -top-10 w-14 md:w-28" />
+                        <div className="w-[2px] h-full bg-[linear-gradient(0deg,rgba(69,222,196,0)_0%,#62e0ff_25%,#52aeff_37.51%,#fd5c79_62.83%,#6d45ce_92.91%)]" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-white text-3xl">{card.title}</h3>
-                        <p className="my-5 text-white/50">
-                          🗓️&nbsp;{card.date}
-                        </p>
-                        <p className="text-[#14827ec1] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white/70">
-                          {card.responsibilities.map((responsibility, index) => (
-                            <li key={index} className="text-lg">
-                              {responsibility}
-                            </li>
-                          ))}
-                        </ul>
+
+                      {/* Experience Text */}
+                      <div className="expText flex xl:gap-25 md:gap-10 gap-5 relative z-20">
+                        <div className="md:size-15 p-3 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-6 border border-black/50 bg-black/80">
+                          <img src={card.logoPath} alt={`${card.title} logo`} />
+                        </div>
+                        <div>
+                          {/* h3 for each job title */}
+                          <h3 className="font-semibold text-white text-2xl md:text-3xl">
+                            {card.title}
+                          </h3>
+                          <p className="my-5 text-white/50">
+                            🗓️&nbsp;{card.date}
+                          </p>
+                          <p className="text-[#14827ec1] italic">
+                            Responsibilities
+                          </p>
+                          <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white/70">
+                            {card.responsibilities.map((responsibility, index) => (
+                              <li key={index} className="text-lg">
+                                {responsibility}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );
 };
+
 export default Experience;
