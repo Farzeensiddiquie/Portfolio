@@ -13,12 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Farzeen Siddiqui | Portfolio",
+  title: "Farzeen Wasif | Portfolio",
   description:
     "Farzeen’s portfolio showcasing modern, responsive, and visually polished web applications built with React, Next.js, GSAP, Framer Motion, and pixel-perfect UI design.",
+  applicationName: "Farzeen Portfolio",
   keywords: [
-    "Farzeen Siddiqui",
     "Farzeen Wasif",
+    "Farzeen Siddiqui",
     "Farzeen",
     "Web Developer",
     "React",
@@ -45,13 +46,13 @@ export const metadata = {
     title: "Farzeen Wasif | Portfolio",
     description:
       "Modern, responsive, and visually polished web applications with smooth animations and pixel-perfect UI.",
-    siteName: "Farzeen Portfolio",
+    siteName: "Farzeen Wasif",
     images: [
       {
-        url: "/preview.png",
+        url: "/logo.png", // ✅ use your custom logo/preview image
         width: 1200,
         height: 630,
-        alt: "Farzeen Portfolio Preview",
+        alt: "Farzeen Wasif Portfolio Logo",
       },
     ],
   },
@@ -63,7 +64,7 @@ export const metadata = {
     title: "Farzeen Wasif | Portfolio",
     description:
       "Modern, responsive, and visually polished web applications with smooth animations and pixel-perfect UI.",
-    images: ["/preview.png"],
+    images: ["/logo.png"], // ✅ use your custom logo
   },
 
   robots: {
@@ -79,18 +80,24 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico?v=2",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo.png", // ✅ logo for Apple devices
   },
 
   // ✅ Google Search Console verification
   verification: {
-  google:"kCk7rusaqikn6su9cco5Luobqb-ptsFHYGqNWCCjBzU",
+    google: "kCk7rusaqikn6su9cco5Luobqb-ptsFHYGqNWCCjBzU",
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* ✅ Manifest for PWA + branding */}
+        <link rel="manifest" href="/manifest.json" />
+
         {/* ✅ JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -101,7 +108,7 @@ export default function RootLayout({ children }) {
               name: "Farzeen Wasif",
               url: "https://farzeensportfolio.vercel.app/",
               sameAs: [
-                "https://www.linkedin.com/in/farzeen-wasif", 
+                "https://www.linkedin.com/in/farzeen-wasif",
                 "https://github.com/Farzeensiddiquie",
               ],
               jobTitle: "Full Stack Developer",
