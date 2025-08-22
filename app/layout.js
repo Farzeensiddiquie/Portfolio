@@ -16,10 +16,11 @@ export const metadata = {
   title: "Farzeen Wasif | Portfolio",
   description:
     "Farzeen’s portfolio showcasing modern, responsive, and visually polished web applications built with React, Next.js, GSAP, Framer Motion, and pixel-perfect UI design.",
-  applicationName: "Farzeen Portfolio",
+  applicationName: "Farzeens Portfolio",
   keywords: [
     "Farzeen Wasif",
     "Farzeen Siddiqui",
+    "Farzeen Wasif Portfolio",
     "Farzeen",
     "Web Developer",
     "React",
