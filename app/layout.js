@@ -50,7 +50,7 @@ export const metadata = {
     siteName: "Farzeen Wasif",
     images: [
       {
-        url: "/logo.png", // ✅ use your custom logo/preview image
+        url: "/logo-v2.png", // ✅ use your custom logo/preview image
         width: 1200,
         height: 630,
         alt: "Farzeen Wasif Portfolio Logo",
@@ -65,7 +65,7 @@ export const metadata = {
     title: "Farzeen Wasif | Portfolio",
     description:
       "Modern, responsive, and visually polished web applications with smooth animations and pixel-perfect UI.",
-    images: ["/logo.png"], // ✅ use your custom logo
+    images: ["/logo-v2.png"], // ✅ use your custom logo
   },
 
   robots: {
@@ -83,7 +83,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/logo.png", // ✅ logo for Apple devices
+    apple: "/logo-v2.png", // ✅ logo for Apple devices
   },
 
   // ✅ Google Search Console verification
