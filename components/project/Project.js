@@ -13,22 +13,23 @@ const projects = [
     title: "BrewVista – Your Coffee, Your Way",
     description:
       "A sleek coffee ordering app that lets users discover cafés, customize brews, and order their favorite coffee with just a few taps.",
-    image: "/project1.webp",
+    image: "/project1.png",
+    link: "https://klikly-v1.vercel.app",
   },
   {
     tag: "Web App",
     title: "Library Management Platform",
     description:
       "An online platform to manage book inventory, member registrations, and borrowing history with advanced search and analytics features.",
-    image: "/project2.png",
+    image: "/projectv2.png",
+    link: "https://richardhanrickportfolio.vercel.app",
   },
   {
     tag: "Portfolio",
     title: "Alex Morgan’s Portfolio",
     description:
       "A personal portfolio website showcasing creative projects, work experience, and interactive UI animations built with Next.js and GSAP.",
-    image: "/project3.png",
-  },
+    image: "/projectv3.png",    link: "https://example.com/portfolio",  },
 ];
 
 const ProjectShowcase = () => {
@@ -91,6 +92,14 @@ const ProjectShowcase = () => {
               <p className="text-gray-300 mt-4 leading-relaxed text-[15px] md:text-base">
                 {project.description}
               </p>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-6 px-6 py-2  hover:text-[#14827ec1] text-[#c9c9c9] text-semibold rounded-lg transition-colors duration-300"
+              >
+                View Project &#8599;
+              </a>
             </div>
 
             {/* Right Side - Image */}
