@@ -25,11 +25,11 @@ const projects = [
     link: "https://richardhanrickportfolio.vercel.app",
   },
   {
-    tag: "Portfolio",
-    title: "Alex Morgan’s Portfolio",
+    tag: "Dashboard",
+    title: "Task Management Admin Dashboard",
     description:
-      "A personal portfolio website showcasing creative projects, work experience, and interactive UI animations built with Next.js and GSAP.",
-    image: "/projectv3.png",    link: "https://example.com/portfolio",  },
+      "Developed a full-stack **Task Management Admin Dashboard** that enables administrators to efficiently manage tasks, track progress, and organize workflows in one centralized system. The platform includes secure authentication, task prioritization, status tracking, and an intuitive responsive interface for smooth task scheduling and monitoring. Built to improve productivity and streamline team collaboration through a clean, modern dashboard experience.",
+    image: "/projectv3.png",    link: "https://github.com/Farzeensiddiquie/admin-dashboard.git",  },
 ];
 
 const ProjectShowcase = () => {
