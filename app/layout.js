@@ -101,25 +101,24 @@ export default function RootLayout({ children }) {
 
         {/* ✅ JSON-LD Structured Data */}
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Farzeen Wasif",
-              url: "https://farzeensportfolio.vercel.app/",
-              sameAs: [
-                "https://www.linkedin.com/in/farzeen-wasif",
-                "https://github.com/Farzeensiddiquie",
-              ],
-              jobTitle: "Full Stack Developer",
-              worksFor: {
-                "@type": "Organization",
-                name: "Freelance / Open to Work",
-              },
-            }),
-          }}
-        />
+type="application/ld+json"
+dangerouslySetInnerHTML={{
+__html: JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Farzeen Wasif",
+    jobTitle: "Full Stack Developer",
+    url: "https://farzeensportfolio.vercel.app/",
+    sameAs: [
+      "https://github.com/Farzeensiddiquie",
+      "https://www.linkedin.com/in/farzeen-wasif"
+    ]
+  }
+})
+}}
+/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
