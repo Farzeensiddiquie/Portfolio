@@ -47,7 +47,7 @@ export const metadata = {
     title: "Farzeen Wasif | Portfolio",
     description:
       "Modern, responsive, and visually polished web applications with smooth animations and pixel-perfect UI.",
-    siteName: "Farzeen Wasif",
+    siteName: "Farzeen Wasif Portfolio",
     images: [
       {
         url: "/logo-v2.png", // ✅ use your custom logo/preview image
