@@ -10,9 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     tag: "Featured Project",
-    title: "BrewVista – Your Coffee, Your Way",
+    title: "Kliky Agency Website",
     description:
-      "A sleek coffee ordering app that lets users discover cafés, customize brews, and order their favorite coffee with just a few taps.",
+      "Kliky is a modern digital agency website designed to showcase professional services including Graphic Designing, AI-powered image creation, Web Development, and Digital Marketing.",
     image: "/project1.png",
     link: "https://klikly-v1.vercel.app",
   },
@@ -20,7 +20,7 @@ const projects = [
     tag: "Web App",
     title: "Library Management Platform",
     description:
-      "An online platform to manage book inventory, member registrations, and borrowing history with advanced search and analytics features.",
+      "Developed a modern and responsive personal portfolio website featuring a clean dark UI, smooth navigation, and structured content sections. The project focuses on professional presentation, performance optimization, and user-friendly design. Built with Next.js and Tailwind CSS, ensuring fast loading, scalability, and a polished user experience across all devices.",
     image: "/projectv2.png",
     link: "https://richardhanrickportfolio.vercel.app",
   },
