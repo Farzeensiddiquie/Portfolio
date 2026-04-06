@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    tag: "Featured Project",
+    tag: "Digital Agency",
     title: "Kliky Agency Website",
     description:
       "Kliky is a modern digital agency website designed to showcase professional services including Graphic Designing, AI-powered image creation, Web Development, and Digital Marketing.",
@@ -17,8 +17,8 @@ const projects = [
     link: "https://klikly-v1.vercel.app",
   },
   {
-    tag: "Web App",
-    title: "Library Management Platform",
+    tag: "Portfolio Website",
+    title: "Richard Hanrick Portfolio",
     description:
       "Developed a modern and responsive personal portfolio website featuring a clean dark UI, smooth navigation, and structured content sections. The project focuses on professional presentation, performance optimization, and user-friendly design. Built with Next.js and Tailwind CSS, ensuring fast loading, scalability, and a polished user experience across all devices.",
     image: "/projectv2.png",
@@ -28,7 +28,7 @@ const projects = [
     tag: "Dashboard",
     title: "Task Management Admin Dashboard",
     description:
-      "Developed a full-stack **Task Management Admin Dashboard** that enables administrators to efficiently manage tasks, track progress, and organize workflows in one centralized system. The platform includes secure authentication, task prioritization, status tracking, and an intuitive responsive interface for smooth task scheduling and monitoring. Built to improve productivity and streamline team collaboration through a clean, modern dashboard experience.",
+      "Developed a full-stack **Task Management Admin Dashboard** that enables administrators to efficiently manage tasks, track progress, and organize workflows in one centralized system.",
     image: "/projectv3.png",    link: "https://github.com/Farzeensiddiquie/admin-dashboard.git",  },
 ];
 
