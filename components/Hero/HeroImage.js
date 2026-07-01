@@ -6,15 +6,15 @@ export default function HeroImage() {
   const ellipseRef = useRotatingAnimation();
 
   return (
-    <div className="relative w-[18.75rem] sm:w-[20rem] md:w-[25rem] max-w-[28rem] aspect-square">
+    <div className="relative overflow-hidden  w-[18.75rem] sm:w-[20rem] md:w-[25rem] max-w-[28rem] aspect-square">
       {/* Main Optimized Image */}
       <Image
-        src="https://ik.imagekit.io/cpnw7c0xpe/Tailwind%20Components/Components/hero-placeholder.png?updatedAt=1739628240660"
+        src="/user.png"
         alt="Portrait of Farzeen Wasif, frontend developer"
         fill
         priority={false} // lazy-load since it's not critical
         sizes="(max-width: 768px) 100vw, 400px"
-        className="absolute inset-0 object-contain p-4 sm:p-6 md:p-8"
+        className="absolute inset-0 object-contain rounded-full p-4 sm:p-6 md:p-6"
       />
 
       {/* Rotating SVG (decorative) */}
