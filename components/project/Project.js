@@ -29,7 +29,7 @@ const projects = [
     title: "Task Management Admin Dashboard",
     description:
       "Developed a full-stack **Task Management Admin Dashboard** that enables administrators to efficiently manage tasks, track progress, and organize workflows in one centralized system.",
-    image: "/projectv3.png",    link: "https://github.com/Farzeensiddiquie/admin-dashboard.git",  },
+    image: "/projectv3.png",    link: "https://github.com/Farzeenwasif/admin-dashboard.git",  },
 ];
 
 const ProjectShowcase = () => {
